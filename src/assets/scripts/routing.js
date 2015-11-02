@@ -108,7 +108,7 @@ define(['jquery', 'lodash', 'visualization/datamap'], function($, _, datamap) {
       return
     } 
 
-    if (path.length > 0)
+    if (path.length > 0 || route.routes.default)
       routeTo(path, route.routes)
 
     //First route down, then apply styles
