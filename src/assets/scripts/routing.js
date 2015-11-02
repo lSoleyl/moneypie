@@ -65,6 +65,11 @@ function showPortfolio(subsection){
     $('a#nav-portfolio-overview').addClass('active');
     $('div#mp-portfolio-content').load('./assets/static/overview.html');
 
+  } else if(subsection && subsection === 'worldmap'){
+    //console.log('Showing List Asset');
+    $('a#nav-portfolio-worldmap').addClass('active');
+    $('div#mp-portfolio-content').load('./assets/static/datamap.html');
+
   } else if(subsection && subsection === 'list'){
     //console.log('Showing List Asset');
     $('a#nav-portfolio-list').addClass('active');
