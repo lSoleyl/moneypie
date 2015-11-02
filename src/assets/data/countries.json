@@ -1,0 +1,1058 @@
+{
+    "AFG": {
+        "id": "AFG",
+        "name": "Afghanistan",
+        "continent": "Asia",
+        "currencies": ["AFN"]
+    },
+    "AGO": {
+        "id": "AGO",
+        "name": "Angola",
+        "continent": "Africa",
+        "currencies": ["AOA"]
+    },
+    "ALB": {
+        "id": "ALB",
+        "name": "Albania",
+        "continent": "Europe",
+        "currencies": ["ALL"]
+    },
+    "ARE": {
+        "id": "ARE",
+        "name": "United Arab Emirates",
+        "continent": "Asia",
+        "currencies": ["AED"]
+    },
+    "ARG": {
+        "id": "ARG",
+        "name": "Argentina",
+        "continent": "South America",
+        "currencies": ["ARS"]
+    },
+    "ARM": {
+        "id": "ARM",
+        "name": "Armenia",
+        "continent": "Asia",
+        "currencies": ["AMD"]
+    },
+    "ATA": {
+        "id": "ATA",
+        "name": "Antarctica",
+        "continent": "Antarctica",
+        "currencies": []
+    },
+    "ATF": {
+        "id": "ATF",
+        "name": "French Southern and Antarctic Lands",
+        "continent": "Antarctica",
+        "currencies": ["EUR"]
+    },
+    "AUS": {
+        "id": "AUS",
+        "name": "Australia",
+        "continent": "Australia/Oceania",
+        "currencies": ["AUD"]
+    },
+    "AUT": {
+        "id": "AUT",
+        "name": "Austria",
+        "continent": "Europe",
+        "currencies": ["EUR"]
+    },
+    "AZE": {
+        "id": "AZE",
+        "name": "Azerbaijan",
+        "continent": "Asia",
+        "currencies": ["AZN"]
+    },
+    "BDI": {
+        "id": "BDI",
+        "name": "Burundi",
+        "continent": "Africa",
+        "currencies": ["BIF"]
+    },
+    "BEL": {
+        "id": "BEL",
+        "name": "Belgium",
+        "continent": "Europe",
+        "currencies": ["EUR"]
+    },
+    "BEN": {
+        "id": "BEN",
+        "name": "Benin",
+        "continent": "Africa",
+        "currencies": ["XAF"]
+    },
+    "BFA": {
+        "id": "BFA",
+        "name": "Burkina Faso",
+        "continent": "Africa",
+        "currencies": ["XAF"]
+    },
+    "BGD": {
+        "id": "BGD",
+        "name": "Bangladesh",
+        "continent": "Asia",
+        "currencies": ["BDT"]
+    },
+    "BGR": {
+        "id": "BGR",
+        "name": "Bulgaria",
+        "continent": "Europe",
+        "currencies": ["BGN"]
+    },
+    "BHS": {
+        "id": "BHS",
+        "name": "The Bahamas",
+        "continent": "North America",
+        "currencies": ["BSD"]
+    },
+    "BIH": {
+        "id": "BIH",
+        "name": "Bosnia and Herzegovina",
+        "continent": "Europe",
+        "currencies": ["BAM"]
+    },
+    "BLR": {
+        "id": "BLR",
+        "name": "Belarus",
+        "continent": "Europe",
+        "currencies": ["BYR"]
+    },
+    "BLZ": {
+        "id": "BLZ",
+        "name": "Belize",
+        "continent": "North America",
+        "currencies": ["BZD"]
+    },
+    "BOL": {
+        "id": "BOL",
+        "name": "Bolivia",
+        "continent": "South America",
+        "currencies": ["BOB"]
+    },
+    "BRA": {
+        "id": "BRA",
+        "name": "Brazil",
+        "continent": "South America",
+        "currencies": ["BRL"]
+    },
+    "BRN": {
+        "id": "BRN",
+        "name": "Brunei",
+        "continent": "Asia",
+        "currencies": ["BND"]
+    },
+    "BTN": {
+        "id": "BTN",
+        "name": "Bhutan",
+        "continent": "Asia",
+        "currencies": ["BTN"]
+    },
+    "BWA": {
+        "id": "BWA",
+        "name": "Botswana",
+        "continent": "Africa",
+        "currencies": ["BWP"]
+    },
+    "CAF": {
+        "id": "CAF",
+        "name": "Central African Republic",
+        "continent": "Africa",
+        "currencies": ["XAF"]
+    },
+    "CAN": {
+        "id": "CAN",
+        "name": "Canada",
+        "continent": "North America",
+        "currencies": ["CAD"]
+    },
+    "CHE": {
+        "id": "CHE",
+        "name": "Switzerland",
+        "continent": "Europe",
+        "currencies": ["CHF"]
+    },
+    "CHL": {
+        "id": "CHL",
+        "name": "Chile",
+        "continent": "South America",
+        "currencies": ["CLP"]
+    },
+    "CHN": {
+        "id": "CHN",
+        "name": "China",
+        "continent": "Asia",
+        "currencies": ["CNY"]
+    },
+    "CIV": {
+        "id": "CIV",
+        "name": "Ivory Coast",
+        "continent": "Africa",
+        "currencies": ["XAF"]
+    },
+    "CMR": {
+        "id": "CMR",
+        "name": "Cameroon",
+        "continent": "Africa",
+        "currencies": ["XAF"]
+    },
+    "COD": {
+        "id": "COD",
+        "name": "Democratic Republic of the Congo",
+        "continent": "Africa",
+        "currencies": ["CDF"]
+    },
+    "COG": {
+        "id": "COG",
+        "name": "Republic of the Congo",
+        "continent": "Africa",
+        "currencies": ["XAF"]
+    },
+    "COL": {
+        "id": "COL",
+        "name": "Colombia",
+        "continent": "South America",
+        "currencies": ["COP"]
+    },
+    "CRI": {
+        "id": "CRI",
+        "name": "Costa Rica",
+        "continent": "North America",
+        "currencies": ["CRC"]
+    },
+    "CUB": {
+        "id": "CUB",
+        "name": "Cuba",
+        "continent": "North America",
+        "currencies": ["CUC", "CUP"]
+    },
+    "-99": {
+        "id": "-99",
+        "name": "Somaliland",
+        "continent": "Africa",
+        "currencies": ["Other"]
+    },
+    "CYP": {
+        "id": "CYP",
+        "name": "Cyprus",
+        "continent": "Europe",
+        "currencies": ["EUR"]
+    },
+    "CZE": {
+        "id": "CZE",
+        "name": "Czech Republic",
+        "continent": "Europe",
+        "currencies": ["CZK"]
+    },
+    "DEU": {
+        "id": "DEU",
+        "name": "Germany",
+        "continent": "Europe",
+        "currencies": ["EUR"]
+    },
+    "DJI": {
+        "id": "DJI",
+        "name": "Djibouti",
+        "continent": "Africa",
+        "currencies": ["DJF"]
+    },
+    "DNK": {
+        "id": "DNK",
+        "name": "Denmark",
+        "continent": "Europe",
+        "currencies": ["DKK"]
+    },
+    "DOM": {
+        "id": "DOM",
+        "name": "Dominican Republic",
+        "continent": "Africa",
+        "currencies": ["DOP"]
+    },
+    "DZA": {
+        "id": "DZA",
+        "name": "Algeria",
+        "continent": "Africa",
+        "currencies": ["DZD"]
+    },
+    "ECU": {
+        "id": "ECU",
+        "name": "Ecuador",
+        "continent": "South America",
+        "currencies": ["USD"]
+    },
+    "EGY": {
+        "id": "EGY",
+        "name": "Egypt",
+        "continent": "Africa",
+        "currencies": ["EGP"]
+    },
+    "ERI": {
+        "id": "ERI",
+        "name": "Eritrea",
+        "continent": "Africa",
+        "currencies": ["ERN"]
+    },
+    "ESP": {
+        "id": "ESP",
+        "name": "Spain",
+        "continent": "Europe",
+        "currencies": ["EUR"]
+    },
+    "EST": {
+        "id": "EST",
+        "name": "Estonia",
+        "continent": "Europe",
+        "currencies": ["EUR"]
+    },
+    "ETH": {
+        "id": "ETH",
+        "name": "Ethiopia",
+        "continent": "Africa",
+        "currencies": ["ETB"]
+    },
+    "FIN": {
+        "id": "FIN",
+        "name": "Finland",
+        "continent": "Europe",
+        "currencies": ["EUR"]
+    },
+    "FJI": {
+        "id": "FJI",
+        "name": "Fiji",
+        "continent": "Australia/Oceania",
+        "currencies": ["FJD"]
+    },
+    "FLK": {
+        "id": "FLK",
+        "name": "Falkland Islands",
+        "continent": "South America",
+        "currencies": ["FKP"]
+    },
+    "FRA": {
+        "id": "FRA",
+        "name": "France",
+        "continent": "Europe",
+        "currencies": ["EUR"]
+    },
+    "GUF": {
+        "id": "GUF",
+        "name": "French Guiana",
+        "continent": "South America",
+        "currencies": ["EUR"]
+    },
+    "GAB": {
+        "id": "GAB",
+        "name": "Gabon",
+        "continent": "Africa",
+        "currencies": ["XAF"]
+    },
+    "GBR": {
+        "id": "GBR",
+        "name": "United Kingdom",
+        "continent": "Europe",
+        "currencies": ["GBP"]
+    },
+    "GEO": {
+        "id": "GEO",
+        "name": "Georgia",
+        "continent": "Asia",
+        "currencies": ["GEL"]
+    },
+    "GHA": {
+        "id": "GHA",
+        "name": "Ghana",
+        "continent": "Africa",
+        "currencies": ["GHS"]
+    },
+    "GIN": {
+        "id": "GIN",
+        "name": "Guinea",
+        "continent": "Africa",
+        "currencies": ["GNF"]
+    },
+    "GMB": {
+        "id": "GMB",
+        "name": "Gambia",
+        "continent": "Africa",
+        "currencies": ["GMD"]
+    },
+    "GNB": {
+        "id": "GNB",
+        "name": "Guinea Bissau",
+        "continent": "Africa",
+        "currencies": ["XAF"]
+    },
+    "GNQ": {
+        "id": "GNQ",
+        "name": "Equatorial Guinea",
+        "continent": "Africa",
+        "currencies": ["XAF"]
+    },
+    "GRC": {
+        "id": "GRC",
+        "name": "Greece",
+        "continent": "Europe",
+        "currencies": ["EUR"]
+    },
+    "GRL": {
+        "id": "GRL",
+        "name": "Greenland",
+        "continent": "North America",
+        "currencies": ["DKK"]
+    },
+    "GTM": {
+        "id": "GTM",
+        "name": "Guatemala",
+        "continent": "North America",
+        "currencies": ["GTQ"]
+    },
+    "GUY": {
+        "id": "GUY",
+        "name": "Guyana",
+        "continent": "South America",
+        "currencies": ["GYD"]
+    },
+    "HND": {
+        "id": "HND",
+        "name": "Honduras",
+        "continent": "North America",
+        "currencies": ["HNL"]
+    },
+    "HRV": {
+        "id": "HRV",
+        "name": "Croatia",
+        "continent": "Europe",
+        "currencies": ["HRK"]
+    },
+    "HTI": {
+        "id": "HTI",
+        "name": "Haiti",
+        "continent": "North America",
+        "currencies": ["HTG"]
+    },
+    "HUN": {
+        "id": "HUN",
+        "name": "Hungary",
+        "continent": "Europe",
+        "currencies": ["HUF"]
+    },
+    "IDN": {
+        "id": "IDN",
+        "name": "Indonesia",
+        "continent": "Asia",
+        "currencies": ["IDR"]
+    },
+    "IND": {
+        "id": "IND",
+        "name": "India",
+        "continent": "Asia",
+        "currencies": ["INR"]
+    },
+    "IRL": {
+        "id": "IRL",
+        "name": "Ireland",
+        "continent": "Europe",
+        "currencies": ["EUR"]
+    },
+    "IRN": {
+        "id": "IRN",
+        "name": "Iran",
+        "continent": "Asia",
+        "currencies": ["IRR"]
+    },
+    "IRQ": {
+        "id": "IRQ",
+        "name": "Iraq",
+        "continent": "Asia",
+        "currencies": ["IQD", "USD"]
+    },
+    "ISL": {
+        "id": "ISL",
+        "name": "Iceland",
+        "continent": "Europe",
+        "currencies": ["ISK"]
+    },
+    "ISR": {
+        "id": "ISR",
+        "name": "Israel",
+        "continent": "Asia",
+        "currencies": ["ILS"]
+    },
+    "ITA": {
+        "id": "ITA",
+        "name": "Italy",
+        "continent": "Europe",
+        "currencies": ["EUR"]
+    },
+    "JAM": {
+        "id": "JAM",
+        "name": "Jamaica",
+        "continent": "North America",
+        "currencies": ["JMD"]
+    },
+    "JOR": {
+        "id": "JOR",
+        "name": "Jordan",
+        "continent": "Asia",
+        "currencies": ["JOD"]
+    },
+    "JPN": {
+        "id": "JPN",
+        "name": "Japan",
+        "continent": "Asia",
+        "currencies": ["JPY"]
+    },
+    "KAZ": {
+        "id": "KAZ",
+        "name": "Kazakhstan",
+        "continent": "Asia",
+        "currencies": ["KZT"]
+    },
+    "KEN": {
+        "id": "KEN",
+        "name": "Kenya",
+        "continent": "Africa",
+        "currencies": ["KES"]
+    },
+    "KGZ": {
+        "id": "KGZ",
+        "name": "Kyrgyzstan",
+        "continent": "Asia",
+        "currencies": ["KGS"]
+    },
+    "KHM": {
+        "id": "KHM",
+        "name": "Cambodia",
+        "continent": "Asia",
+        "currencies": ["KHR"]
+    },
+    "KOR": {
+        "id": "KOR",
+        "name": "South Korea",
+        "continent": "Asia",
+        "currencies": ["KRW"]
+    },
+    "KWT": {
+        "id": "KWT",
+        "name": "Kuwait",
+        "continent": "Asia",
+        "currencies": ["KWD"]
+    },
+    "LAO": {
+        "id": "LAO",
+        "name": "Laos",
+        "continent": "Asia",
+        "currencies": ["LAK"]
+    },
+    "LBN": {
+        "id": "LBN",
+        "name": "Lebanon",
+        "continent": "Asia",
+        "currencies": ["LBP"]
+    },
+    "LBR": {
+        "id": "LBR",
+        "name": "Liberia",
+        "continent": "Africa",
+        "currencies": ["LRD"]
+    },
+    "LBY": {
+        "id": "LBY",
+        "name": "Libya",
+        "continent": "Africa",
+        "currencies": ["LYD"]
+    },
+    "LKA": {
+        "id": "LKA",
+        "name": "Sri Lanka",
+        "continent": "Asia",
+        "currencies": ["LKR"]
+    },
+    "LSO": {
+        "id": "LSO",
+        "name": "Lesotho",
+        "continent": "Africa",
+        "currencies": ["LSL", "ZAR"]
+    },
+    "LTU": {
+        "id": "LTU",
+        "name": "Lithuania",
+        "continent": "Europe",
+        "currencies": ["EUR"]
+    },
+    "LUX": {
+        "id": "LUX",
+        "name": "Luxembourg",
+        "continent": "Europe",
+        "currencies": ["EUR"]
+    },
+    "LVA": {
+        "id": "LVA",
+        "name": "Latvia",
+        "continent": "Europe",
+        "currencies": ["EUR"]
+    },
+    "MAR": {
+        "id": "MAR",
+        "name": "Morocco",
+        "continent": "Africa",
+        "currencies": ["MAD"]
+    },
+    "MDA": {
+        "id": "MDA",
+        "name": "Moldova",
+        "continent": "Europe",
+        "currencies": ["MDL"]
+    },
+    "MDG": {
+        "id": "MDG",
+        "name": "Madagascar",
+        "continent": "Africa",
+        "currencies": ["MGA"]
+    },
+    "MEX": {
+        "id": "MEX",
+        "name": "Mexico",
+        "continent": "North America",
+        "currencies": ["MXN"]
+    },
+    "MKD": {
+        "id": "MKD",
+        "name": "Macedonia",
+        "continent": "Europe",
+        "currencies": ["MKD"]
+    },
+    "MLI": {
+        "id": "MLI",
+        "name": "Mali",
+        "continent": "Africa",
+        "currencies": ["XAF"]
+    },
+    "MMR": {
+        "id": "MMR",
+        "name": "Myanmar",
+        "continent": "Asia",
+        "currencies": ["MMK"]
+    },
+    "MNE": {
+        "id": "MNE",
+        "name": "Montenegro",
+        "continent": "Europe",
+        "currencies": ["EUR"]
+    },
+    "MNG": {
+        "id": "MNG",
+        "name": "Mongolia",
+        "continent": "Asia",
+        "currencies": ["MNT"]
+    },
+    "MOZ": {
+        "id": "MOZ",
+        "name": "Mozambique",
+        "continent": "Africa",
+        "currencies": ["MZN"]
+    },
+    "MRT": {
+        "id": "MRT",
+        "name": "Mauritania",
+        "continent": "Africa",
+        "currencies": ["MRO"]
+    },
+    "MWI": {
+        "id": "MWI",
+        "name": "Malawi",
+        "continent": "Africa",
+        "currencies": ["MWK"]
+    },
+    "MYS": {
+        "id": "MYS",
+        "name": "Malaysia",
+        "continent": "Asia",
+        "currencies": ["MYR"]
+    },
+    "NAM": {
+        "id": "NAM",
+        "name": "Namibia",
+        "continent": "Africa",
+        "currencies": ["NAD"]
+    },
+    "NCL": {
+        "id": "NCL",
+        "name": "New Caledonia",
+        "continent": "Australia/Oceania",
+        "currencies": ["XPF"]
+    },
+    "NER": {
+        "id": "NER",
+        "name": "Niger",
+        "continent": "Africa",
+        "currencies": ["XAF"]
+    },
+    "NGA": {
+        "id": "NGA",
+        "name": "Nigeria",
+        "continent": "Africa",
+        "currencies": ["NGN"]
+    },
+    "NIC": {
+        "id": "NIC",
+        "name": "Nicaragua",
+        "continent": "North America",
+        "currencies": ["NIO"]
+    },
+    "NLD": {
+        "id": "NLD",
+        "name": "Netherlands",
+        "continent": "Europe",
+        "currencies": ["EUR"]
+    },
+    "NOR": {
+        "id": "NOR",
+        "name": "Norway",
+        "continent": "Europe",
+        "currencies": ["NOK"]
+    },
+    "NPL": {
+        "id": "NPL",
+        "name": "Nepal",
+        "continent": "Asia",
+        "currencies": ["NPR"]
+    },
+    "NZL": {
+        "id": "NZL",
+        "name": "New Zealand",
+        "continent": "Australia/Oceania",
+        "currencies": ["NZD"]
+    },
+    "OMN": {
+        "id": "OMN",
+        "name": "Oman",
+        "continent": "Asia",
+        "currencies": ["OMR"]
+    },
+    "PAK": {
+        "id": "PAK",
+        "name": "Pakistan",
+        "continent": "Asia",
+        "currencies": ["PKR"]
+    },
+    "PAN": {
+        "id": "PAN",
+        "name": "Panama",
+        "continent": "North America",
+        "currencies": ["PAB", "USD"]
+    },
+    "PER": {
+        "id": "PER",
+        "name": "Peru",
+        "continent": "South America",
+        "currencies": ["PEN"]
+    },
+    "PHL": {
+        "id": "PHL",
+        "name": "Philippines",
+        "continent": "Asia",
+        "currencies": ["PHP"]
+    },
+    "PNG": {
+        "id": "PNG",
+        "name": "Papua New Guinea",
+        "continent": "Australia/Oceania",
+        "currencies": ["PGK"]
+    },
+    "POL": {
+        "id": "POL",
+        "name": "Poland",
+        "continent": "Europe",
+        "currencies": ["PLN"]
+    },
+    "PRI": {
+        "id": "PRI",
+        "name": "Puerto Rico",
+        "continent": "North America",
+        "currencies": ["USD"]
+    },
+    "PRK": {
+        "id": "PRK",
+        "name": "North Korea",
+        "continent": "Asia",
+        "currencies": ["KPW"]
+    },
+    "PRT": {
+        "id": "PRT",
+        "name": "Portugal",
+        "continent": "Europe",
+        "currencies": ["EUR"]
+    },
+    "PRY": {
+        "id": "PRY",
+        "name": "Paraguay",
+        "continent": "South America",
+        "currencies": ["PYG"]
+    },
+    "QAT": {
+        "id": "QAT",
+        "name": "Qatar",
+        "continent": "Asia",
+        "currencies": ["QAR"]
+    },
+    "ROU": {
+        "id": "ROU",
+        "name": "Romania",
+        "continent": "Europe",
+        "currencies": ["MDL", "RON"]
+    },
+    "RUS": {
+        "id": "RUS",
+        "name": "Russia",
+        "continent": "Asia",
+        "currencies": ["RUB"]
+    },
+    "RWA": {
+        "id": "RWA",
+        "name": "Rwanda",
+        "continent": "Africa",
+        "currencies": ["RWF"]
+    },
+    "ESH": {
+        "id": "ESH",
+        "name": "Western Sahara",
+        "continent": "Africa",
+        "currencies": ["MAD"]
+    },
+    "SAU": {
+        "id": "SAU",
+        "name": "Saudi Arabia",
+        "continent": "Asia",
+        "currencies": ["SAR"]
+    },
+    "SDN": {
+        "id": "SDN",
+        "name": "Sudan",
+        "continent": "Africa",
+        "currencies": ["DZD"]
+    },
+    "SSD": {
+        "id": "SSD",
+        "name": "South Sudan",
+        "continent": "Africa",
+        "currencies": ["SSP"]
+    },
+    "SEN": {
+        "id": "SEN",
+        "name": "Senegal",
+        "continent": "Africa",
+        "currencies": ["XAF"]
+    },
+    "SLB": {
+        "id": "SLB",
+        "name": "Solomon Islands",
+        "continent": "Australia/Oceania",
+        "currencies": ["SBD"]
+    },
+    "SLE": {
+        "id": "SLE",
+        "name": "Sierra Leone",
+        "continent": "Africa",
+        "currencies": ["SLL"]
+    },
+    "SLV": {
+        "id": "SLV",
+        "name": "El Salvador",
+        "continent": "North America",
+        "currencies": ["SVC", "USD"]
+    },
+    "SOM": {
+        "id": "SOM",
+        "name": "Somalia",
+        "continent": "Africa",
+        "currencies": ["SOS"]
+    },
+    "SRB": {
+        "id": "SRB",
+        "name": "Republic of Serbia",
+        "continent": "Europe",
+        "currencies": ["RSD"]
+    },
+    "SUR": {
+        "id": "SUR",
+        "name": "Suriname",
+        "continent": "South America",
+        "currencies": ["SRD"]
+    },
+    "SVK": {
+        "id": "SVK",
+        "name": "Slovakia",
+        "continent": "Europe",
+        "currencies": ["EUR"]
+    },
+    "SVN": {
+        "id": "SVN",
+        "name": "Slovenia",
+        "continent": "Europe",
+        "currencies": ["EUR"]
+    },
+    "SWE": {
+        "id": "SWE",
+        "name": "Sweden",
+        "continent": "Europe",
+        "currencies": ["SEK"]
+    },
+    "SWZ": {
+        "id": "SWZ",
+        "name": "Swaziland",
+        "continent": "Africa",
+        "currencies": ["SZL"]
+    },
+    "SYR": {
+        "id": "SYR",
+        "name": "Syria",
+        "continent": "Asia",
+        "currencies": ["SYP"]
+    },
+    "TCD": {
+        "id": "TCD",
+        "name": "Chad",
+        "continent": "Africa",
+        "currencies": ["XAF"]
+    },
+    "TGO": {
+        "id": "TGO",
+        "name": "Togo",
+        "continent": "Africa",
+        "currencies": ["XAF"]
+    },
+    "THA": {
+        "id": "THA",
+        "name": "Thailand",
+        "continent": "Asia",
+        "currencies": ["THB"]
+    },
+    "TJK": {
+        "id": "TJK",
+        "name": "Tajikistan",
+        "continent": "Asia",
+        "currencies": ["TJS"]
+    },
+    "TKM": {
+        "id": "TKM",
+        "name": "Turkmenistan",
+        "continent": "Asia",
+        "currencies": ["TMT"]
+    },
+    "TLS": {
+        "id": "TLS",
+        "name": "East Timor",
+        "continent": "Asia",
+        "currencies": ["USD"]
+    },
+    "TTO": {
+        "id": "TTO",
+        "name": "Trinidad and Tobago",
+        "continent": "South America",
+        "currencies": ["TTD"]
+    },
+    "TUN": {
+        "id": "TUN",
+        "name": "Tunisia",
+        "continent": "Africa",
+        "currencies": ["TND"]
+    },
+    "TUR": {
+        "id": "TUR",
+        "name": "Turkey",
+        "continent": "Asia",
+        "currencies": ["TRY"]
+    },
+    "TWN": {
+        "id": "TWN",
+        "name": "Taiwan",
+        "continent": "Asia",
+        "currencies": ["TWD"]
+    },
+    "TZA": {
+        "id": "TZA",
+        "name": "United Republic of Tanzania",
+        "continent": "Africa",
+        "currencies": ["TZS"]
+    },
+    "UGA": {
+        "id": "UGA",
+        "name": "Uganda",
+        "continent": "Africa",
+        "currencies": ["UGX"]
+    },
+    "UKR": {
+        "id": "UKR",
+        "name": "Ukraine",
+        "continent": "Europe",
+        "currencies": ["UAH"]
+    },
+    "URY": {
+        "id": "URY",
+        "name": "Uruguay",
+        "continent": "South America",
+        "currencies": ["UYU"]
+    },
+    "USA": {
+        "id": "USA",
+        "name": "United States of America",
+        "continent": "North America",
+        "currencies": ["USD"]
+    },
+    "UZB": {
+        "id": "UZB",
+        "name": "Uzbekistan",
+        "continent": "Asia",
+        "currencies": ["UZS"]
+    },
+    "VEN": {
+        "id": "VEN",
+        "name": "Venezuela",
+        "continent": "South America",
+        "currencies": ["VEF"]
+    },
+    "VNM": {
+        "id": "VNM",
+        "name": "Vietnam",
+        "continent": "Asia",
+        "currencies": ["VND"]
+    },
+    "VUT": {
+        "id": "VUT",
+        "name": "Vanuatu",
+        "continent": "Australia/Oceania",
+        "currencies": ["VUV"]
+    },
+    "PSE": {
+        "id": "PSE",
+        "name": "West Bank",
+        "continent": "Asia",
+        "currencies": ["ILS"]
+    },
+    "YEM": {
+        "id": "YEM",
+        "name": "Yemen",
+        "continent": "Asia",
+        "currencies": ["YER"]
+    },
+    "ZAF": {
+        "id": "ZAF",
+        "name": "South Africa",
+        "continent": "Africa",
+        "currencies": ["ZAR"]
+    },
+    "ZMB": {
+        "id": "ZMB",
+        "name": "Zambia",
+        "continent": "Africa",
+        "currencies": ["ZMW"]
+    },
+    "ZWE": {
+        "id": "ZWE",
+        "name": "Zimbabwe",
+        "continent": "Africa",
+        "currencies": ["ZWD"]
+    }
+}

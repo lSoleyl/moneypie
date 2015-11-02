@@ -1,0 +1,23 @@
+{
+    "Asia": {
+        "countries": ["AFG", "ARE", "ARM", "AZE", "BGD", "BRN", "BTN", "CHN", "GEO", "IDN", "IND", "IRN", "IRQ", "ISR", "JOR", "JPN", "KAZ", "KGZ", "KHM", "KOR", "KWT", "LAO", "LBN", "LKA", "MMR", "MNG", "MYS", "NPL", "OMN", "PAK", "PHL", "PRK", "QAT", "RUS", "SAU", "SYR", "THA", "TJK", "TKM", "TLS", "TUR", "TWN", "UZB", "VNM", "PSE", "YEM"]
+    },
+    "Africa": {
+        "countries": ["AGO", "BDI", "BEN", "BFA", "BWA", "CAF", "CIV", "CMR", "COD", "COG", "-99", "DJI", "DOM", "DZA", "EGY", "ERI", "ETH", "GAB", "GHA", "GIN", "GMB", "GNB", "GNQ", "KEN", "LBR", "LBY", "LSO", "MAR", "MDG", "MLI", "MOZ", "MRT", "MWI", "NAM", "NER", "NGA", "RWA", "ESH", "SDN", "SSD", "SEN", "SLE", "SOM", "SWZ", "TCD", "TGO", "TUN", "TZA", "UGA", "ZAF", "ZMB", "ZWE"]
+    },
+    "Europe": {
+        "countries": ["ALB", "AUT", "BEL", "BGR", "BIH", "BLR", "CHE", "CYP", "CZE", "DEU", "DNK", "ESP", "EST", "FIN", "FRA", "GBR", "GRC", "HRV", "HUN", "IRL", "ISL", "ITA", "LTU", "LUX", "LVA", "MDA", "MKD", "MNE", "NLD", "NOR", "POL", "PRT", "ROU", "SRB", "SVK", "SVN", "SWE", "UKR"]
+    },
+    "South America": {
+        "countries": ["ARG", "BOL", "BRA", "CHL", "COL", "ECU", "FLK", "GUF", "GUY", "PER", "PRY", "SUR", "TTO", "URY", "VEN"]
+    },
+    "Antarctica": {
+        "countries": ["ATA", "ATF"]
+    },
+    "Australia/Oceania": {
+        "countries": ["AUS", "FJI", "NCL", "NZL", "PNG", "SLB", "VUT"]
+    },
+    "North America": {
+        "countries": ["BHS", "BLZ", "CAN", "CRI", "CUB", "GRL", "GTM", "HND", "HTI", "JAM", "MEX", "NIC", "PAN", "PRI", "SLV", "USA"]
+    }
+}
