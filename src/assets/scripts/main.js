@@ -16,7 +16,7 @@ requirejs.config({
   }
 })
 
-requirejs(['routing', 'jquery', 'bootstrap'], function(routing, $) {
+requirejs(['routing', 'model', 'jquery', 'bootstrap'], function(routing, model, $) {
   $(function(){
     console.log('Hi, from MoneyPie');
 
@@ -24,35 +24,15 @@ requirejs(['routing', 'jquery', 'bootstrap'], function(routing, $) {
     routing.init();
 
     //Force first routing because we don't have to start browsing this page form the landing page
-    routing.route(); 
+    routing.route();
 
     // Load Data
-    loadData($); //TODO refactor into own module?
+    //console.log(model.continents, model.countries, model.currencies);
 
   })
 
   /**
    * MoneyPi EntryPoint
    */
-
-  var continents; //TODO make these variables accessible
-  var countries;
-  var currencies;
-
-  function loadData($){
-    console.log('Loading data');
-
-    $.getJSON("./assets/data/continents.json", function(data){
-      continents = data;
-    });
-
-    $.getJSON("./assets/data/countries.json", function(data){
-      countries = data;
-    });
-
-    $.getJSON("./assets/data/currencies.json", function(data){
-      currencies = data;
-    });
-}
 
 })
