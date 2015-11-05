@@ -37,15 +37,14 @@
 
         <!-- Locality of Asset -->
         <div class="form-group">
-          <label class="col-lg-2 control-label" for="assetLocality">Locality</label>
+          <label class="col-lg-2 control-label" for="assetContinent">Continent</label>
           <div class="col-lg-10">
-            <select id="assetLocality" class="form-control">
-              <option>Europe</option>
-              <option>America</option>
-              <option>Asia</option>
-              <option>Africa</option>
-              <option>Australia</option>
+            <select id="assetContinent" class="form-control">
             </select>
+          </div>
+          <label class="col-lg-2 control-label"for="assetCountry">Country</label>
+          <div class="col-lg-10">
+            <select id="assetCountry" class="form-control"></select>
           </div>
         </div>
 
@@ -54,13 +53,12 @@
           <label class="col-lg-2 control-label" for="assetType">Type</label>
           <div class="col-lg-10">
             <select id="assetType" class="form-control">
-              <option>festverzinste Wertpapiere</option>
-              <option>Beteiligungspapiere</option>
-              <option>Anteilspapiere</option>
-              <option>Warenwertpapiere</option>
-              <option>Immobilien</option>
-              <option>Rohstoffe</option>
-              <option>Liquiditäten</option>
+              <option value="loan">Festverzinste Wertpapiere</option>
+              <!--<option >Beteiligungspapiere</option>-->
+              <option value="stock">Aktien</option>
+              <option value="">Immobilien</option>
+              <option value="ressource">Rohstoffe</option>
+              <option value="currency">Liquiditäten</option>
             </select>
           </div>
         </div>

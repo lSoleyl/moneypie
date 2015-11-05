@@ -1,4 +1,4 @@
-define(['jquery', 'lodash', 'visualization/datamap'], function($, _, datamap) {
+define(['jquery', 'lodash', 'visualization/datamap', 'view/addAsset'], function($, _, datamap, addAsset) {
   var routing = {}
 
   /** Initialization function
@@ -11,7 +11,7 @@ define(['jquery', 'lodash', 'visualization/datamap'], function($, _, datamap) {
     routes['portfolio'].routes = { //Define portfolio sub routes
       'overview': navRoute('overview'),
       'list': navRoute('list', {asset:'listAsset.html'}),
-      'add': navRoute('add', {asset:'addAsset.html'}),
+      'add': navRoute('add', {asset:'addAsset.html', onLoad: addAsset.onLoad }),
       'edit': navRoute('edit', {asset:'editAsset.html'}),
       'worldmap': navRoute('worldmap', {asset:'datamap.html', 
         onLoad: function() {
