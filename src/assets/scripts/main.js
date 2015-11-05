@@ -16,8 +16,8 @@ requirejs.config({
   }
 })
 
-requirejs(['routing', 'model', 'portfolio', 'loader/currency' 'jquery', 'bootstrap'], 
-  function( routing,   model,   portfolio,      currency,        $) {
+requirejs(['routing', 'model', 'portfolio', 'loader/currency', 'jquery', 'bootstrap'], 
+  function( routing,   model,   portfolio,      currency,         $) {
   $(function(){
     //Load portfolio from localstorage
     portfolio.load()

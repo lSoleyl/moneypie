@@ -4,14 +4,14 @@ define(["storage", "jquery"], function(storage, $) {
   var currency = {}
   var currencyData = null
 
-  function today() { return (new Time()).toDateString() }
+  function today() { return (new Date()).toDateString() }
 
   function update() {
-    $.getJSON("//api.fixer.io/latest", function(result) {
+    $.ajax("//api.fixer.io/latest", {success:function(result) {
       currencyData = result
       currencyData.lastUpdate = today() //Update currencies at most daily
       storage.save("currency", currencyData)
-    })
+    }})
   }
 
   /** Call this function to load the latest saved currency data from
