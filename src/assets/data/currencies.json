@@ -53,7 +53,8 @@
         "symbol": "$",
         "name": "Australian Dollar",
         "countries": ["AUS"],
-        "exchangeRate": 0
+        "exchangeRate": 0,
+        "available": true
     },
     "AWG": {
         "id": "AWG",
@@ -95,7 +96,8 @@
         "symbol": "лв",
         "name": "Bulgaria Lev",
         "countries": ["BGR"],
-        "exchangeRate": 0
+        "exchangeRate": 0,
+        "available": true
     },
     "BHD": {
         "id": "BHD",
@@ -179,7 +181,8 @@
         "symbol": "$",
         "name": "Canadian Dollar",
         "countries": ["CAN"],
-        "exchangeRate": 0
+        "exchangeRate": 0,
+        "available": true
     },
     "CDF": {
         "id": "CDF",
@@ -193,7 +196,8 @@
         "symbol": "CHF",
         "name": "Switzerland Franc",
         "countries": ["CHE"],
-        "exchangeRate": 0
+        "exchangeRate": 0,
+        "available": true
     },
     "CLP": {
         "id": "CLP",
@@ -207,7 +211,8 @@
         "symbol": "¥",
         "name": "China Yuan Renminbi",
         "countries": ["CHN"],
-        "exchangeRate": 0
+        "exchangeRate": 0,
+        "available": true
     },
     "COP": {
         "id": "COP",
@@ -249,7 +254,8 @@
         "symbol": "Kč",
         "name": "Czech Republic Koruna",
         "countries": ["CZE"],
-        "exchangeRate": 0
+        "exchangeRate": 0,
+        "available": true
     },
     "DJF": {
         "id": "DJF",
@@ -263,7 +269,8 @@
         "symbol": "kr",
         "name": "Denmark Krone",
         "countries": ["DNK", "GRL"],
-        "exchangeRate": 0
+        "exchangeRate": 0,
+        "available": true
     },
     "DOP": {
         "id": "DOP",
@@ -326,7 +333,8 @@
         "symbol": "£",
         "name": "United Kingdom Pound",
         "countries": ["GBR"],
-        "exchangeRate": 0
+        "exchangeRate": 0,
+        "available": true
     },
     "GEL": {
         "id": "GEL",
@@ -389,7 +397,8 @@
         "symbol": "$",
         "name": "Hong Kong Dollar",
         "countries": [],
-        "exchangeRate": 0
+        "exchangeRate": 0,
+        "available": true
     },
     "HNL": {
         "id": "HNL",
@@ -403,7 +412,8 @@
         "symbol": "kn",
         "name": "Croatia Kuna",
         "countries": ["HRV"],
-        "exchangeRate": 0
+        "exchangeRate": 0,
+        "available": true
     },
     "HTG": {
         "id": "HTG",
@@ -417,21 +427,24 @@
         "symbol": "Ft",
         "name": "Hungary Forint",
         "countries": ["HUN"],
-        "exchangeRate": 0
+        "exchangeRate": 0,
+        "available": true
     },
     "IDR": {
         "id": "IDR",
         "symbol": "Rp",
         "name": "Indonesia Rupiah",
         "countries": ["IDN"],
-        "exchangeRate": 0
+        "exchangeRate": 0,
+        "available": true
     },
     "ILS": {
         "id": "ILS",
         "symbol": "₪",
         "name": "Israel Shekel",
         "countries": ["ISR", "PSE"],
-        "exchangeRate": 0
+        "exchangeRate": 0,
+        "available": true
     },
     "IMP": {
         "id": "IMP",
@@ -445,7 +458,8 @@
         "symbol": "₹",
         "name": "India Rupee",
         "countries": ["IND"],
-        "exchangeRate": 0
+        "exchangeRate": 0,
+        "available": true
     },
     "IQD": {
         "id": "IQD",
@@ -494,7 +508,8 @@
         "symbol": "¥",
         "name": "Japan Yen",
         "countries": ["JPN"],
-        "exchangeRate": 0
+        "exchangeRate": 0,
+        "available": true
     },
     "KES": {
         "id": "KES",
@@ -536,7 +551,8 @@
         "symbol": "₩",
         "name": "South Korean Won",
         "countries": ["KOR"],
-        "exchangeRate": 0
+        "exchangeRate": 0,
+        "available": true
     },
     "KWD": {
         "id": "KWD",
@@ -683,14 +699,16 @@
         "symbol": "$",
         "name": "Mexico Peso",
         "countries": ["MEX"],
-        "exchangeRate": 0
+        "exchangeRate": 0,
+        "available": true
     },
     "MYR": {
         "id": "MYR",
         "symbol": "RM",
         "name": "Malaysia Ringgit",
         "countries": ["MYS"],
-        "exchangeRate": 0
+        "exchangeRate": 0,
+        "available": true
     },
     "MZN": {
         "id": "MZN",
@@ -725,7 +743,8 @@
         "symbol": "kr",
         "name": "Norway Krone",
         "countries": ["NOR"],
-        "exchangeRate": 0
+        "exchangeRate": 0,
+        "available": true
     },
     "NPR": {
         "id": "NPR",
@@ -739,7 +758,8 @@
         "symbol": "$",
         "name": "New Zealand Dollar",
         "countries": ["NZL"],
-        "exchangeRate": 0
+        "exchangeRate": 0,
+        "available": true
     },
     "OMR": {
         "id": "OMR",
@@ -774,7 +794,8 @@
         "symbol": "₱",
         "name": "Philippines Peso",
         "countries": ["PHL"],
-        "exchangeRate": 0
+        "exchangeRate": 0,
+        "available": true
     },
     "PKR": {
         "id": "PKR",
@@ -788,7 +809,8 @@
         "symbol": "zł",
         "name": "Poland Zloty",
         "countries": ["POL"],
-        "exchangeRate": 0
+        "exchangeRate": 0,
+        "available": true
     },
     "PYG": {
         "id": "PYG",
@@ -809,7 +831,8 @@
         "symbol": "lei",
         "name": "Romania New Leu",
         "countries": ["ROU"],
-        "exchangeRate": 0
+        "exchangeRate": 0,
+        "available": true
     },
     "RSD": {
         "id": "RSD",
@@ -823,7 +846,8 @@
         "symbol": "руб",
         "name": "Russia Ruble",
         "countries": ["RUS"],
-        "exchangeRate": 0
+        "exchangeRate": 0,
+        "available": true
     },
     "RWF": {
         "id": "RWF",
@@ -872,14 +896,16 @@
         "symbol": "kr",
         "name": "Sweden Krona",
         "countries": ["SWE"],
-        "exchangeRate": 0
+        "exchangeRate": 0,
+        "available": true
     },
     "SGD": {
         "id": "SGD",
         "symbol": "$",
         "name": "Singapore Dollar",
         "countries": [],
-        "exchangeRate": 0
+        "exchangeRate": 0,
+        "available": true
     },
     "SHP": {
         "id": "SHP",
@@ -949,7 +975,8 @@
         "symbol": "฿",
         "name": "Thailand Baht",
         "countries": ["THA"],
-        "exchangeRate": 0
+        "exchangeRate": 0,
+        "available": true
     },
     "TJS": {
         "id": "TJS",
@@ -984,7 +1011,8 @@
         "symbol": "TRY",
         "name": "Turkey Lira",
         "countries": ["TUR"],
-        "exchangeRate": 0
+        "exchangeRate": 0,
+        "available": true
     },
     "TTD": {
         "id": "TTD",
@@ -1033,7 +1061,8 @@
         "symbol": "$",
         "name": "United States Dollar",
         "countries": ["ECU", "IRQ", "PAN", "PRI", "SLV", "TLS", "USA"],
-        "exchangeRate": 0
+        "exchangeRate": 0,
+        "available": true
     },
     "UYU": {
         "id": "UYU",
@@ -1124,7 +1153,8 @@
         "symbol": "R",
         "name": "South Africa Rand",
         "countries": ["ZAF", "LSO"],
-        "exchangeRate": 0
+        "exchangeRate": 0,
+        "available": true
     },
     "ZMW": {
         "id": "ZMW",
