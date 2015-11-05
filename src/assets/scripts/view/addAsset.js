@@ -9,7 +9,7 @@ function(model,    $,         _,      async,   assets,   portfolio) {
   var visibleFields = {
     "currency": ["Price", "Region"],
     "loan":     ["Price", "Quantity", "Region"],
-    "stock":    ["Quantity", "Region"], //TODO we don't really need to get the region (but we need a name!)
+    "stock":    ["Quantity", "Stock"],
     "property": ["Price", "Region"],
     "ressource":["Price", "Quantity"] //Region should be irrelevant for ressources
   }
