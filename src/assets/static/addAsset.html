@@ -19,35 +19,6 @@
       <fieldset>
         <legend>Add Asset</legend>
 
-        <!-- Quantity of Asset -->
-        <div class="form-group">
-          <label class="col-lg-2 control-label" for="assetQuantity">Quantity</label>
-          <div class="col-lg-10">
-            <input id="assetQuantity" class="form-control" type="number" placeholder="Quantity">
-          </div>
-        </div>
-
-        <!-- Value of Asset -->
-        <div class="form-group">
-          <label class="col-lg-2 control-label" for="assetValue">Value</label>
-          <div class="col-lg-10">
-            <input id="assetValue" class="form-control" type="number" placeholder="Value">
-          </div>
-        </div>
-
-        <!-- Locality of Asset -->
-        <div class="form-group">
-          <label class="col-lg-2 control-label" for="assetContinent">Continent</label>
-          <div class="col-lg-10">
-            <select id="assetContinent" class="form-control">
-            </select>
-          </div>
-          <label class="col-lg-2 control-label"for="assetCountry">Country</label>
-          <div class="col-lg-10">
-            <select id="assetCountry" class="form-control"></select>
-          </div>
-        </div>
-
         <!-- Type of Asset -->
         <div class="form-group">
           <label class="col-lg-2 control-label" for="assetType">Type</label>
@@ -56,10 +27,45 @@
               <option value="loan">Festverzinste Wertpapiere</option>
               <!--<option >Beteiligungspapiere</option>-->
               <option value="stock">Aktien</option>
-              <option value="">Immobilien</option>
+              <option value="property">Immobilien</option>
               <option value="ressource">Rohstoffe</option>
               <option value="currency">Liquiditäten</option>
             </select>
+          </div>
+        </div>
+
+        <div id="addAssetFieldWrapper">
+          <!-- Quantity of Asset -->
+          <div class="form-group" id="addAssetQuantityDiv">
+            <label class="col-lg-2 control-label" for="assetQuantity">Quantity</label>
+            <div class="col-lg-10">
+              <input id="assetQuantity" class="form-control" type="number" placeholder="Quantity">
+            </div>
+          </div>
+
+          <!-- Value of Asset -->
+          <div class="form-group" id="addAssetPriceDiv">
+            <label class="col-lg-2 control-label" for="assetValue">Value</label>
+            <div class="col-lg-10">
+              <input id="assetValue" class="form-control" type="number" placeholder="Value">
+            </div>
+            <label class="col-lg-2 control-label" for="assetCurrency">Currency</label>
+            <div class="col-lg-10">
+              <select id="assetCurrency" class="form-control"></select>
+            </div>
+          </div>
+
+          <!-- Locality of Asset -->
+          <div class="form-group" id="addAssetRegionDiv">
+            <label class="col-lg-2 control-label" for="assetContinent">Continent</label>
+            <div class="col-lg-10">
+              <select id="assetContinent" class="form-control">
+              </select>
+            </div>
+            <label class="col-lg-2 control-label"for="assetCountry">Country</label>
+            <div class="col-lg-10">
+              <select id="assetCountry" class="form-control"></select>
+            </div>
           </div>
         </div>
 

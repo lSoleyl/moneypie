@@ -4,6 +4,30 @@ define(["model", "jquery", "lodash", "async", "assets", "portfolio"],
 function(model,    $,         _,      async,   assets,   portfolio) {
   var view = {}
 
+  /** This map defines which fields have to be visible for which asset type
+   */
+  var visibleFields = {
+    "currency": ["Price", "Region"],
+    "loan":     ["Price", "Quantity", "Region"],
+    "stock":    ["Quantity", "Region"], //TODO we don't really need to get the region (but we need a name!)
+    "property": ["Price", "Region"],
+    "ressource":["Price", "Quantity"] //Region should be irrelevant for ressources
+  }
+
+
+  /** This function shows/hides input fields based on the currently selected
+   *  asset type
+   */
+  function redisplayFields() {
+    $("div#addAssetFieldWrapper > div.form-group").hide()
+    var type = $("select#assetType").val()
+    _.each(visibleFields[type], function(groupName) { //Show all needed fields
+      var selector = "div#addAsset" + groupName + "Div"
+      $(selector).show()
+    })
+  }
+
+
   /**The country map will map from a continent name to all known country objects
    * of that continent
    */
@@ -47,6 +71,10 @@ function(model,    $,         _,      async,   assets,   portfolio) {
 
       continentSelection.change(updateCountries) //Register change callback
       updateCountries() //Update once
+
+
+      $("select#assetType").change(redisplayFields) //Register change callback for type field
+      redisplayFields() //Update once
 
 
       //TODO load currency information and stock information.
