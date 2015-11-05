@@ -1,25 +1,40 @@
-define(['jquery', 'lodash'], function($, _) {
+define(['jquery', 'lodash', 'async'], function($, _, async) {
   //console.log('Loading data');
 
   var model = {};
 
-  $.getJSON("./assets/data/continents.json", function(data){
-    //console.log('Loading continents');
+  var ready = false
+  var requestQueue = []
 
-    model.continents = data;
-  });
+  /** Function used, to load a certain static json asset
+   */
+  function loadData(name, callback) {
+    $.getJSON("./assets/data/" + name + ".json", function(data) {
+      model[name] = data
+      async.nextTick(function() { callback(null) })
+    })
+  }
 
-  $.getJSON("./assets/data/countries.json", function(data){
-    //console.log('Loading countires');
+  /** This function can be called to wait until direct 
+   *  model access is safe, because loading is done.
+   *
+   * @param cb a function which should be called if the model is loaded
+   */
+  model.ready = function(cb) {
+    if (!ready)
+      return requestQueue.push(function() { cb(null) })
 
-    model.countries = data;
-  });
+    async.nextTick(function() { cb(null) })
+  }
 
-  $.getJSON("./assets/data/currencies.json", function(data){
-    //console.log('Loading currencies');
-
-    model.currencies = data;
-  });
-
+  //Static data to load
+  var loadList = ["continents", "countries", "currencies"]
+  async.map(loadList, loadData, function(err, res) {
+    console.log("model loaded.")
+    ready = true;
+    if (requestQueue.length > 0) //Schedule all pending requests for execution
+      _.each(requestQueue, function(request) { async.nextTick(request) })
+  })
+  
   return model;
 });
