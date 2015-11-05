@@ -1,0 +1,14 @@
+[
+  {
+    "type": "stock",
+    "name": "Volkswagen",
+    "value":  42.00,
+    "amount": 23
+  },
+  {
+    "type": "stock",
+    "name": "Deutsche Bank",
+    "value":  1,
+    "amount": 3
+  }
+]

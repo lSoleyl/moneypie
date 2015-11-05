@@ -3,14 +3,14 @@ define(['jquery', 'lodash', 'async'], function($, _, async) {
 
   var model = {};
 
-  var ready = false
-  var requestQueue = []
+  var ready = false;
+  var requestQueue = [];
 
   /** Function used, to load a certain static json asset
    */
   function loadData(name, callback) {
     $.getJSON("./assets/data/" + name + ".json", function(data) {
-      model[name] = data
+      model[name] = data;
       async.nextTick(function() { callback(null) })
     })
   }
@@ -22,19 +22,18 @@ define(['jquery', 'lodash', 'async'], function($, _, async) {
    */
   model.ready = function(cb) {
     if (!ready)
-      return requestQueue.push(function() { cb(null) })
+      return requestQueue.push(function() { cb(null) });
 
     async.nextTick(function() { cb(null) })
-  }
+  };
 
   //Static data to load
-  var loadList = ["continents", "countries", "currencies"]
+  var loadList = ["continents", "countries", "currencies", "examplePortfolio"];
   async.map(loadList, loadData, function(err, res) {
-    console.log("model loaded.")
     ready = true;
     if (requestQueue.length > 0) //Schedule all pending requests for execution
       _.each(requestQueue, function(request) { async.nextTick(request) })
-  })
+  });
   
   return model;
 });
