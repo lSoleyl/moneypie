@@ -16,9 +16,11 @@ requirejs.config({
   }
 })
 
-requirejs(['routing', 'model', 'jquery', 'bootstrap'], function(routing, model, $) {
+requirejs(['routing', 'model', 'portfolio', 'jquery', 'bootstrap'], 
+  function( routing,   model,   portfolio,     $) {
   $(function(){
-    console.log('Hi, from MoneyPie');
+    //Load portfolio from localstorage
+    portfolio.load()
 
     // Initialize Routing for Single Plage Application
     routing.init();
