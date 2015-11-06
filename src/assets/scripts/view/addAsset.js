@@ -54,13 +54,25 @@ function(model,    $,         _,      async,   assets,   portfolio) {
 
     countrySelection.empty() //clear current options
     countrySelection.append(options)
+    countryChanged()
   }
 
 
   /** This function will change the selectable stocks depending on the selected country
    */
   function countryChanged() {
-    //TODO update stock selection
+    if (selectedType == "stock") { //Only update stock list if we are actually adding stocks to our portfolio
+      var country = $("select#assetCountry").val()
+      var stockList = $("select#assetStock")
+
+      var availableStocks = _.sortBy(_.filter(model.stocks, function(stock) { return stock.country == country }), 'name')
+      var options = _.map(availableStocks, function(stock) {
+        return $('<option value="' + stock.isin + '">' + stock.name + '</option>')
+      })
+
+      stockList.empty()
+      stockList.append(options)
+    }
   }
 
 
@@ -94,7 +106,7 @@ function(model,    $,         _,      async,   assets,   portfolio) {
       redisplayFields() //Update once
 
 
-      //TODO load currency information and stock information.
+      //TODO load currency information
 
       //TODO asset creation and additon to portfolio if "add asset" is clicked
     })

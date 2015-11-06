@@ -28,7 +28,7 @@ define(['jquery', 'lodash', 'async'], function($, _, async) {
   };
 
   //Static data to load
-  var loadList = ["continents", "countries", "currencies", "examplePortfolio"];
+  var loadList = ["continents", "countries", "currencies", "examplePortfolio", "stocks"];
   async.map(loadList, loadData, function(err, res) {
     ready = true;
     if (requestQueue.length > 0) //Schedule all pending requests for execution
