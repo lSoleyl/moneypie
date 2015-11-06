@@ -1,4 +1,6 @@
-define(['jquery', 'lodash', 'visualization/datamap', 'view/addAsset', 'view/listAsset'], function($, _, datamap, addAsset, listAsset) {
+define(['jquery', 'lodash', 'visualization/datamap', 
+         'view/addAsset', 'view/listAsset', 'view/clearPortfolio'], 
+function($, _, datamap, addAsset, listAsset, clearPortfolio) {
   var routing = {}
 
   /** Initialization function
@@ -13,6 +15,7 @@ define(['jquery', 'lodash', 'visualization/datamap', 'view/addAsset', 'view/list
       'list': navRoute('list', {asset:'listAsset.html', onShow: listAsset.onShow}),
       'add': navRoute('add', {asset:'addAsset.html', onLoad: addAsset.onLoad }),
       'edit': navRoute('edit', {asset:'editAsset.html'}),
+      'clear': navRoute('clear', {asset: 'clearPortfolio.html', onLoad: clearPortfolio.onLoad }),
       'worldmap': navRoute('worldmap', {asset:'datamap.html', 
         onLoad: function() {
           datamap.init('datamap')
