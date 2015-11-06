@@ -41,7 +41,7 @@ define(["model", "loader/currency"], function(model, currency) {
    * @param amount how much of that currency makes up the created asset
    */
   assets.currency = function(symbol, countrySymbol, amount) {
-    var asset = new Asset("currency", amount)
+    var asset = new Asset(model.currencies[symbol].name, "currency", amount)
     asset.price = {
       currency: symbol,
       value: 1
