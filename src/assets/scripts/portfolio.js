@@ -1,12 +1,12 @@
 /** This module defines the portfolio object
  */
-define(["storage", "lodash"], function(storage, _) {
+define(["storage", "assets", "lodash"], function(storage, assets, _) {
   var portfolio = { assets:[] }
   var key = "portfolio"
 
   portfolio.load = function() {
-    var assets = storage.load(key) || []
-    this.assets = assets
+    var assetList = storage.load(key) || []
+    this.assets = _.map(assetList, assets.objToAsset) //Convert plain objects into assets
   }
 
   portfolio.save = function() {
@@ -19,7 +19,12 @@ define(["storage", "lodash"], function(storage, _) {
     this.save()
   }
 
-  
+  /** This function returns the portfolio's total worth in euro by
+   *  accumulating the volumes of the portfolio's assets.
+   */
+  portfolio.volume = function() {
+    return _.sum(this.assets, function(asset) { return asset.volume() })
+  }
 
   return portfolio
 })
