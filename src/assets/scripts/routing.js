@@ -9,11 +9,8 @@ define(['jquery', 'lodash', 'visualization/datamap', 'view/addAsset', 'view/list
     var routes = defaultRoutes(['portfolio', 'home', 'about', 'contact'])
     routes.default = 'home'
     routes['portfolio'].routes = { //Define portfolio sub routes
-      'overview': navRoute('overview'),
-      'list': navRoute('list', {asset:'listAsset.html',
-        onLoad: function() {
-        listAsset.init('listAsset')
-      }}),
+      'overview': navRoute('overview'),                  //v-- Assetlist needs an update, every time, we open the page
+      'list': navRoute('list', {asset:'listAsset.html', onShow: listAsset.onShow}),
       'add': navRoute('add', {asset:'addAsset.html', onLoad: addAsset.onLoad }),
       'edit': navRoute('edit', {asset:'editAsset.html'}),
       'worldmap': navRoute('worldmap', {asset:'datamap.html', 
@@ -68,6 +65,8 @@ define(['jquery', 'lodash', 'visualization/datamap', 'view/addAsset', 'view/list
 
     if (options.onLoad)
       route.load.onLoad = options.onLoad
+    if (options.onShow)
+      route.load.onShow = options.onShow
 
     return route
   }

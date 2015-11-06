@@ -1,20 +1,27 @@
-define(['jquery', '../model'], function ($, model) {
+define(['jquery', 'model', 'portfolio', 'lodash'], function ($, model, portfolio, _) {
     var listAsset = {};
 
-    listAsset.init = function () {
+    function formatPrice(price) {
+       var symbol = model.currencies[price.currency].symbol
+       return "" + price.value + " " + symbol
+    }
+
+
+    listAsset.onShow = function () {
         var newHTML = [];
 
-        for (var i = 0; i < model.examplePortfolio.length; i++) {
+        _.each(portfolio.assets, function(asset) {
             newHTML.push('<tr>');
-            newHTML.push('<td>' + model.examplePortfolio[i].type + '</td>');
-            newHTML.push('<td>' + model.examplePortfolio[i].name + '</td>');
-            newHTML.push('<td>' + model.examplePortfolio[i].value + '</td>');
-            newHTML.push('<td>' + model.examplePortfolio[i].amount + '</td>');
+            newHTML.push('<td>' + asset.type + '</td>');
+            newHTML.push('<td>' + asset.name + '</td>');
+            newHTML.push('<td>' + formatPrice(asset.price) + '</td>');
+            newHTML.push('<td>' + asset.amount + '</td>');
+            newHTML.push('<td>' + asset.volume().toFixed(2) + '&euro;</td>');
             newHTML.push('</tr>');
-        }
+        })
 
 
-        $("#portfolios").html(newHTML.join(""));
+        $("#listAssetsPortfolios").html(newHTML.join(""));
     };
 
     return listAsset;
