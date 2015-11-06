@@ -1,6 +1,6 @@
 /** Logic module for addAsset view
  */
-define(["model", "jquery", "lodash", "async", "assets", "portfolio"],
+define(["model", "jquery", "lodash", "async", "assets", "portfolio", "utils/message"],
 function(model,    $,         _,      async,   assets,   portfolio) {
   var view = {}
 
@@ -21,32 +21,12 @@ function(model,    $,         _,      async,   assets,   portfolio) {
     "ressource":["Price", "Quantity"] //Region should be irrelevant for ressources
   }
 
-
-  function showMessage(message, type, cb) {
-    type = type || "info"
-    var messageDiv = $('<div class="alert alert-' + type + '" role="alert">' + message + '</div>')
-    messageDiv.hide() 
-
-    $("div#addAssetMessages").append(messageDiv)
-    messageDiv.slideDown(500, function() {
-      setTimeout(function() {
-        messageDiv.fadeOut(2000, function() {
-          messageDiv.remove()
-          if (cb)
-            async.nextTick(cb)
-        })
-      }, 2000)
+  var message = require("utils/message")("div#addAssetMessages")
+  message.error_clear = function(text) {
+    message.error(text, function() {
+      $("div#addAssetFieldWrapper div.has-error").removeClass("has-error") //Clear all form errors after message faded
     })
   }
-
-  function messageSucces(message) { showMessage(message, "success") }
-  function messageInfo(message)   { showMessage(message, "info") }
-  function messageError(message)  { 
-    showMessage(message, "danger", function() {
-      $("div#addAssetFieldWrapper div.has-error").removeClass("has-error") //Clear all form errors after message faded
-    }) 
-  }
-
 
   /** This function shows/hides input fields based on the currently selected
    *  asset type
@@ -122,16 +102,16 @@ function(model,    $,         _,      async,   assets,   portfolio) {
       var amount = parseInt(input.quantity.val())
       if (amount <= 0) {
         input.quantity.parent("div").addClass("has-error")
-        messageError("Entered negative quantity of assets")
+        message.error_clear("Entered negative quantity of assets")
         return
       }
 
       var stockObj = model.stocks[select.stock.val()]
       portfolio.addAsset(assets.stock(stockObj, amount))
 
-      messageSucces("Successfully added stocks to portfolio")
+      message.success("Successfully added stocks to portfolio")
     } else {
-      messageError("not yet supported!")
+      message.error("not yet supported!")
     }
   }
 
