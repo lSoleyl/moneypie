@@ -5,6 +5,8 @@ function(model,    $,         _,      async,   assets,   portfolio) {
   var view = {}
 
   var selectedType = undefined
+  var selectedCountry = undefined
+
   var select = undefined
   var button = undefined
   var input = undefined
@@ -13,7 +15,7 @@ function(model,    $,         _,      async,   assets,   portfolio) {
    */
   var visibleFields = {
     "currency": ["Price", "Region"],
-    "loan":     ["Price", "Quantity", "Region"],
+    "loan":     ["Price", "Region"],
     "stock":    ["Region", "Quantity", "Stock"],
     "property": ["Price", "Region"],
     "ressource":["Price", "Quantity"] //Region should be irrelevant for ressources
@@ -86,13 +88,15 @@ function(model,    $,         _,      async,   assets,   portfolio) {
   }
 
 
-  /** This function will change the selectable stocks depending on the selected country
+  /** This function will change the selectable stocks depending on the selected country.
+   *  It will also set the available currencies for other asset types
    */
   function countryChanged() {
-    if (selectedType == "stock") { //Only update stock list if we are actually adding stocks to our portfolio
-      var country = select.country.val()
+    selectedCountry = select.country.val()
 
-      var availableStocks = _.sortBy(_.filter(model.stocks, function(stock) { return stock.country == country }), 'name')
+    //Only update stock list if we are actually adding stocks to our portfolio 
+    if (selectedType == "stock") { 
+      var availableStocks = _.sortBy(_.filter(model.stocks, function(stock) { return stock.country == selectedCountry }), 'name')
       var options = _.map(availableStocks, function(stock) {
         return $('<option value="' + stock.isin + '">' + stock.name + '</option>')
       })
@@ -100,6 +104,15 @@ function(model,    $,         _,      async,   assets,   portfolio) {
       select.stock.empty()
       select.stock.append(options)
     }
+
+    //Update available currencies
+    var options = _.map(model.countries[selectedCountry].currencies, function(currencyId) {
+      var currency = model.currencies[currencyId]
+      return $('<option value="' + currency.id + '">' + currency.symbol + '   - ' + currency.name + '</option>')
+    })
+
+    select.currency.empty()
+    select.currency.append(options)
   }
 
 
