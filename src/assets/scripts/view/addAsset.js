@@ -11,16 +11,19 @@ function(model,    $,         _,      async,   assets,   portfolio) {
   var button = undefined
   var input = undefined
 
+  var fields = undefined
+
   /** This map defines which fields have to be visible for which asset type
    */
   var visibleFields = {
     "currency": ["Price", "Region"],
-    "loan":     ["Price", "Region"],
+    "loan":     ["Name", "Price", "Region"],
     "stock":    ["Region", "Quantity", "Stock"],
-    "property": ["Price", "Region"],
+    "property": ["Name", "Price", "Region"],
     "ressource":["Price", "Quantity"] //Region should be irrelevant for ressources
   }
 
+  //Initialize message module
   var message = require("utils/message")("div#addAssetMessages")
   message.error_clear = function(text) {
     message.error(text, function() {
@@ -95,23 +98,57 @@ function(model,    $,         _,      async,   assets,   portfolio) {
     select.currency.append(options)
   }
 
+  /** Function map with functions to instantiate the asset types
+   */
+  var assetLoader = {
+    stock: function() { 
+      return assets.stock(model.stocks[select.stock.val()], parseInt(input.quantity.val())) 
+    },
+    loan: function() { 
+      return assets.loan(input.name.val(), selectedCountry, parseFloat(input.value.val()), select.currency.val())
+    },
+    currency: function() {
+      return assets.currency(select.currency.val(), selectedCountry, parseFloat(input.value.val()))
+    },
+    property: function() {
+      return assets.property(input.name.val(), selectedCountry, parseFloat(input.value.val()), select.currency.val())
+    }
+  }
 
-  function addAsset() {
-    //Get Asset data
-    if (selectedType == "stock") {
-      var amount = parseInt(input.quantity.val())
-      if (amount <= 0) {
-        input.quantity.parent("div").addClass("has-error")
-        message.error_clear("Entered negative quantity of assets")
-        return
+  /** Input validation function
+   */
+  function validInput() {
+    var valid = true
+    _.each(fields, function($field) {
+      var field = $field[0]
+      if (field.validate && $field.is(":visible")) {
+        try {
+          field.validate($field.val())
+        } catch (e) {
+          $field.parent("div").addClass("has-error")
+          message.error_clear(e)
+          valid = false
+        }
       }
+    })
+    return valid
+  }
 
-      var stockObj = model.stocks[select.stock.val()]
-      portfolio.addAsset(assets.stock(stockObj, amount))
 
-      message.success("Successfully added stocks to portfolio")
+  /** Actually adds the asset to the portfolio
+   */
+  function addAsset() {
+    //Validate input fields
+    if (!validInput())
+      return
+
+    var newAsset = assetLoader[selectedType]
+
+    if (newAsset) {
+      portfolio.addAsset(newAsset())
+      message.success("Successfully added new asset to portfolio")
     } else {
-      message.error("not yet supported!")
+      message.error("Asset type not supported!")
     }
   }
 
@@ -135,10 +172,12 @@ function(model,    $,         _,      async,   assets,   portfolio) {
       }
 
       input = {
+        name:      $("input#addAssetName"),
         quantity:  $("input#addAssetQuantity"),
         value:     $("input#addAssetValue")
       }
       
+      fields = _.flatten([_.values(select), _.values(input)])
 
       
       //Generate continent options
@@ -166,8 +205,23 @@ function(model,    $,         _,      async,   assets,   portfolio) {
 
       button.submit.click(addAsset)
 
-      //TODO load currency information
+      //Input validation functions
+      select.currency[0].validate = function(value) { if (!value) throw "No currency selected!" }
+      input.name[0].validate = function(value)      { if (!value) throw "Missing asset name" }
+      input.value[0].validate = function(value) { 
+        $(this).val(value.replace(",","."))
+        var val = parseFloat($(this).val())
+        if (val <= 0 || val != val) //Second condition (=NaN)
+          throw "Asset value must be a positive number!"        
+      }
+      input.quantity[0].validate = function(value) { 
+        var val = parseInt(value)
+        if (val <= 0 || val != val)
+          throw "Asset quantity must be a positive number!"
+      }
 
+
+      //TODO load currency information
       //TODO redisplay fields, when reset is clicked
     })
   }
