@@ -21,9 +21,9 @@
 
         <!-- Type of Asset -->
         <div class="form-group">
-          <label class="col-lg-2 control-label" for="assetType">Type</label>
+          <label class="col-lg-2 control-label" for="addAssetType">Type</label>
           <div class="col-lg-10">
-            <select id="assetType" class="form-control">
+            <select id="addAssetType" class="form-control">
               <option value="loan">Festverzinste Wertpapiere</option>
               <!--<option >Beteiligungspapiere</option>-->
               <option value="stock">Aktien</option>
@@ -37,56 +37,57 @@
         <div id="addAssetFieldWrapper">
           <!-- Locality of Asset -->
           <div class="form-group" id="addAssetRegionDiv">
-            <label class="col-lg-2 control-label" for="assetContinent">Continent</label>
+            <label class="col-lg-2 control-label" for="addAssetContinent">Continent</label>
             <div class="col-lg-10">
-              <select id="assetContinent" class="form-control">
+              <select id="addAssetContinent" class="form-control">
               </select>
             </div>
-            <label class="col-lg-2 control-label"for="assetCountry">Country</label>
+            <label class="col-lg-2 control-label"for="addAssetCountry">Country</label>
             <div class="col-lg-10">
-              <select id="assetCountry" class="form-control"></select>
+              <select id="addAssetCountry" class="form-control"></select>
             </div>
           </div>
 
           <!-- Quantity of Asset -->
           <div class="form-group" id="addAssetQuantityDiv">
-            <label class="col-lg-2 control-label" for="assetQuantity">Quantity</label>
+            <label class="col-lg-2 control-label" for="addAssetQuantity">Quantity</label>
             <div class="col-lg-10">
-              <input id="assetQuantity" class="form-control" type="number" placeholder="Quantity">
+              <input id="addAssetQuantity" class="form-control" type="number" placeholder="Quantity">
             </div>
           </div>
 
           <!-- Stock selection(for stocks only) --> 
           <div class="form-group" id="addAssetStockDiv">
-            <label class="col-lg-2 control-label" for="assetStock">Stock</label>
+            <label class="col-lg-2 control-label" for="addAssetStock">Stock</label>
             <div class="col-lg-10">
-              <select id="assetStock" class="form-control"></select>
+              <select id="addAssetStock" class="form-control"></select>
             </div>
           </div>
 
 
           <!-- Value of Asset -->
           <div class="form-group" id="addAssetPriceDiv">
-            <label class="col-lg-2 control-label" for="assetValue">Value</label>
+            <label class="col-lg-2 control-label" for="addAssetValue">Value</label>
             <div class="col-lg-10">
-              <input id="assetValue" class="form-control" type="number" placeholder="Value">
+              <input id="addAssetValue" class="form-control" type="number" placeholder="Value">
             </div>
-            <label class="col-lg-2 control-label" for="assetCurrency">Currency</label>
+            <label class="col-lg-2 control-label" for="addAssetCurrency">Currency</label>
             <div class="col-lg-10">
-              <select id="assetCurrency" class="form-control"></select>
+              <select id="addAssetCurrency" class="form-control"></select>
             </div>
           </div>
         </div>
         <!-- Buttons -->
         <div class="form-group">
           <div class="col-lg-10 col-lg-offset-2">
-            <button class="btn btn-default" type="reset">Cancel</button>
-            <button class="btn btn-primary" type="submit">Submit</button>
+            <button class="btn btn-default" type="reset" id="addAssetReset">Cancel</button>
+            <button class="btn btn-primary" id="addAssetSubmit">Submit</button>
           </div>
         </div>
 
       </fieldset>
     </form>
+    <div id="addAssetMessages"></div>
 
   </body>
 </html>

@@ -5,6 +5,9 @@ function(model,    $,         _,      async,   assets,   portfolio) {
   var view = {}
 
   var selectedType = undefined
+  var select = undefined
+  var button = undefined
+  var input = undefined
 
   /** This map defines which fields have to be visible for which asset type
    */
@@ -17,12 +20,38 @@ function(model,    $,         _,      async,   assets,   portfolio) {
   }
 
 
+  function showMessage(message, type, cb) {
+    type = type || "info"
+    var messageDiv = $('<div class="alert alert-' + type + '" role="alert">' + message + '</div>')
+    messageDiv.hide() 
+
+    $("div#addAssetMessages").append(messageDiv)
+    messageDiv.slideDown(500, function() {
+      setTimeout(function() {
+        messageDiv.fadeOut(2000, function() {
+          messageDiv.remove()
+          if (cb)
+            async.nextTick(cb)
+        })
+      }, 2000)
+    })
+  }
+
+  function messageSucces(message) { showMessage(message, "success") }
+  function messageInfo(message)   { showMessage(message, "info") }
+  function messageError(message)  { 
+    showMessage(message, "danger", function() {
+      $("div#addAssetFieldWrapper div.has-error").removeClass("has-error") //Clear all form errors after message faded
+    }) 
+  }
+
+
   /** This function shows/hides input fields based on the currently selected
    *  asset type
    */
   function redisplayFields() {
-    $("div#addAssetFieldWrapper > div.form-group").hide()
-    selectedType = $("select#assetType").val()
+    $("div#addAssetFieldWrapper > div.form-group").hide() //Hide all form input elements
+    selectedType = select.type.val()
     _.each(visibleFields[selectedType], function(groupName) { //Show all needed fields
       var selector = "div#addAsset" + groupName + "Div"
       $(selector).show()
@@ -40,8 +69,7 @@ function(model,    $,         _,      async,   assets,   portfolio) {
    *  It will change the available options of the country selection accordingly
    */
   function updateCountries() {
-    var selectedContinent = $("select#assetContinent").val()
-    var countrySelection = $("select#assetCountry")
+    var selectedContinent = select.continent.val()
     
     var countries = countryMap[selectedContinent]
     if (selectedType == "stock") { //Only allow countries, we have stocks for
@@ -52,8 +80,8 @@ function(model,    $,         _,      async,   assets,   portfolio) {
       return $('<option value="' + country.id + '">' + country.name + '</option>')
     })
 
-    countrySelection.empty() //clear current options
-    countrySelection.append(options)
+    select.country.empty() //clear current options
+    select.country.append(options)
     countryChanged()
   }
 
@@ -62,32 +90,70 @@ function(model,    $,         _,      async,   assets,   portfolio) {
    */
   function countryChanged() {
     if (selectedType == "stock") { //Only update stock list if we are actually adding stocks to our portfolio
-      var country = $("select#assetCountry").val()
-      var stockList = $("select#assetStock")
+      var country = select.country.val()
 
       var availableStocks = _.sortBy(_.filter(model.stocks, function(stock) { return stock.country == country }), 'name')
       var options = _.map(availableStocks, function(stock) {
         return $('<option value="' + stock.isin + '">' + stock.name + '</option>')
       })
 
-      stockList.empty()
-      stockList.append(options)
+      select.stock.empty()
+      select.stock.append(options)
     }
   }
 
+
+  function addAsset() {
+    //Get Asset data
+    if (selectedType == "stock") {
+      var amount = parseInt(input.quantity.val())
+      if (amount <= 0) {
+        input.quantity.parent("div").addClass("has-error")
+        messageError("Entered negative quantity of assets")
+        return
+      }
+
+      var stockObj = model.stocks[select.stock.val()]
+      portfolio.addAsset(assets.stock(stockObj, amount))
+
+      messageSucces("Successfully added stocks to portfolio")
+    } else {
+      messageError("not yet supported!")
+    }
+  }
 
   /** This function will be called when the addAsset view is loaded the first time
    */
   view.onLoad = function() {
     model.ready(function() { //Wait for model to be fully loaded
-      var continentSelection = $("select#assetContinent")
+      
+      //Assign these selectors here to only define them once
+      select = {
+        continent: $("select#addAssetContinent"),
+        country:   $("select#addAssetCountry"),
+        currency:  $("select#addAssetCurrency"),
+        stock:     $("select#addAssetStock"),
+        type:      $("select#addAssetType")        
+      }
 
+      button = {
+        reset:     $("button#addAssetReset"),
+        submit:    $("button#addAssetSubmit")
+      }
+
+      input = {
+        quantity:  $("input#addAssetQuantity"),
+        value:     $("input#addAssetValue")
+      }
+      
+
+      
       //Generate continent options
       var continentOptions = _.map(model.continents, function(data, continentName) {
         return $('<option value="' + continentName + '">' + continentName + '</option>')
       })
 
-      continentSelection.append(continentOptions)
+      select.continent.append(continentOptions)
 
       //Build countryMap
       _.each(model.continents, function(data, continentName) {
@@ -96,19 +162,20 @@ function(model,    $,         _,      async,   assets,   portfolio) {
         }),'name')
       })
 
-      continentSelection.change(updateCountries) //Register change callback
+      select.continent.change(updateCountries) //Register change callback
       updateCountries() //Update once
 
-      $("select#assetCountry").change(countryChanged)
+      select.country.change(countryChanged)
       countryChanged() //Update once
 
-      $("select#assetType").change(redisplayFields) //Register change callback for type field
+      select.type.change(redisplayFields) //Register change callback for type field
       redisplayFields() //Update once
 
+      button.submit.click(addAsset)
 
       //TODO load currency information
 
-      //TODO asset creation and additon to portfolio if "add asset" is clicked
+      //TODO redisplay fields, when reset is clicked
     })
   }
 
