@@ -33,6 +33,9 @@ define(["storage", "jquery"], function(storage, $) {
     if (!currencyData)
       throw "currency module isn't ready yet" //Shouldn't happen
 
+    if (currencySymbol == 'EUR') //No conversion needed
+      return value
+
     var rate = currencyData.rates[currencySymbol]
     if (rate === undefined)
       throw "unknown currency: '" + currencySymbol + "'"
