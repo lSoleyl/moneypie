@@ -51,13 +51,15 @@
         "id": "AUS",
         "name": "Australia",
         "continent": "Australia/Oceania",
-        "currencies": ["AUD"]
+        "currencies": ["AUD"],
+        "stocklist": "lak_27"
     },
     "AUT": {
         "id": "AUT",
         "name": "Austria",
         "continent": "Europe",
-        "currencies": ["EUR"]
+        "currencies": ["EUR"],
+        "stocklist": "lak_66"
     },
     "AZE": {
         "id": "AZE",
@@ -75,7 +77,8 @@
         "id": "BEL",
         "name": "Belgium",
         "continent": "Europe",
-        "currencies": ["EUR"]
+        "currencies": ["EUR"],
+        "stocklist": "lak_50"
     },
     "BEN": {
         "id": "BEN",
@@ -165,13 +168,15 @@
         "id": "CAN",
         "name": "Canada",
         "continent": "North America",
-        "currencies": ["CAD"]
+        "currencies": ["CAD"],
+        "stocklist": "lak_48"
     },
     "CHE": {
         "id": "CHE",
         "name": "Switzerland",
         "continent": "Europe",
-        "currencies": ["CHF"]
+        "currencies": ["CHF"],
+        "stocklist": "lak_68"
     },
     "CHL": {
         "id": "CHL",
@@ -183,7 +188,8 @@
         "id": "CHN",
         "name": "China",
         "continent": "Asia",
-        "currencies": ["CNY"]
+        "currencies": ["CNY"],
+        "stocklist": "lak_11"
     },
     "CIV": {
         "id": "CIV",
@@ -249,7 +255,8 @@
         "id": "DEU",
         "name": "Germany",
         "continent": "Europe",
-        "currencies": ["EUR"]
+        "currencies": ["EUR"],
+        "stocklist": "lak_52"
     },
     "DJI": {
         "id": "DJI",
@@ -261,7 +268,8 @@
         "id": "DNK",
         "name": "Denmark",
         "continent": "Europe",
-        "currencies": ["DKK"]
+        "currencies": ["DKK"],
+        "stocklist": "lak_51"
     },
     "DOM": {
         "id": "DOM",
@@ -297,7 +305,8 @@
         "id": "ESP",
         "name": "Spain",
         "continent": "Europe",
-        "currencies": ["EUR"]
+        "currencies": ["EUR"],
+        "stocklist": "lak_96"
     },
     "EST": {
         "id": "EST",
@@ -315,7 +324,8 @@
         "id": "FIN",
         "name": "Finland",
         "continent": "Europe",
-        "currencies": ["EUR"]
+        "currencies": ["EUR"],
+        "stocklist": "lak_54"
     },
     "FJI": {
         "id": "FJI",
@@ -333,7 +343,8 @@
         "id": "FRA",
         "name": "France",
         "continent": "Europe",
-        "currencies": ["EUR"]
+        "currencies": ["EUR"],
+        "stocklist": "lak_55"
     },
     "GUF": {
         "id": "GUF",
@@ -351,7 +362,8 @@
         "id": "GBR",
         "name": "United Kingdom",
         "continent": "Europe",
-        "currencies": ["GBP"]
+        "currencies": ["GBP"],
+        "stocklist": "lak_56"
     },
     "GEO": {
         "id": "GEO",
@@ -393,7 +405,8 @@
         "id": "GRC",
         "name": "Greece",
         "continent": "Europe",
-        "currencies": ["EUR"]
+        "currencies": ["EUR"],
+        "stocklist": "lak_91"
     },
     "GRL": {
         "id": "GRL",
@@ -441,7 +454,8 @@
         "id": "IDN",
         "name": "Indonesia",
         "continent": "Asia",
-        "currencies": ["IDR"]
+        "currencies": ["IDR"],
+        "stocklist": "lak_14"
     },
     "IND": {
         "id": "IND",
@@ -453,7 +467,8 @@
         "id": "IRL",
         "name": "Ireland",
         "continent": "Europe",
-        "currencies": ["EUR"]
+        "currencies": ["EUR"],
+        "stocklist": "lak_58"
     },
     "IRN": {
         "id": "IRN",
@@ -477,13 +492,15 @@
         "id": "ISR",
         "name": "Israel",
         "continent": "Asia",
-        "currencies": ["ILS"]
+        "currencies": ["ILS"],
+        "stocklist": "lak_92"
     },
     "ITA": {
         "id": "ITA",
         "name": "Italy",
         "continent": "Europe",
-        "currencies": ["EUR"]
+        "currencies": ["EUR"],
+        "stocklist": "lak_93"
     },
     "JAM": {
         "id": "JAM",
@@ -501,7 +518,8 @@
         "id": "JPN",
         "name": "Japan",
         "continent": "Asia",
-        "currencies": ["JPY"]
+        "currencies": ["JPY"],
+        "stocklist": "lak_15"
     },
     "KAZ": {
         "id": "KAZ",
@@ -615,7 +633,8 @@
         "id": "MEX",
         "name": "Mexico",
         "continent": "North America",
-        "currencies": ["MXN"]
+        "currencies": ["MXN"],
+        "stocklist": "lak_87"
     },
     "MKD": {
         "id": "MKD",
@@ -705,13 +724,15 @@
         "id": "NLD",
         "name": "Netherlands",
         "continent": "Europe",
-        "currencies": ["EUR"]
+        "currencies": ["EUR"],
+        "stocklist": "lak_64"
     },
     "NOR": {
         "id": "NOR",
         "name": "Norway",
         "continent": "Europe",
-        "currencies": ["NOK"]
+        "currencies": ["NOK"],
+        "stocklist": "lak_65"
     },
     "NPL": {
         "id": "NPL",
@@ -723,7 +744,8 @@
         "id": "NZL",
         "name": "New Zealand",
         "continent": "Australia/Oceania",
-        "currencies": ["NZD"]
+        "currencies": ["NZD"],
+        "stocklist": "lak_29"
     },
     "OMN": {
         "id": "OMN",
@@ -897,7 +919,8 @@
         "id": "SWE",
         "name": "Sweden",
         "continent": "Europe",
-        "currencies": ["SEK"]
+        "currencies": ["SEK"],
+        "stocklist": "lak_67"
     },
     "SWZ": {
         "id": "SWZ",
@@ -927,7 +950,8 @@
         "id": "THA",
         "name": "Thailand",
         "continent": "Asia",
-        "currencies": ["THB"]
+        "currencies": ["THB"],
+        "stocklist": "lak_25"
     },
     "TJK": {
         "id": "TJK",
@@ -999,7 +1023,8 @@
         "id": "USA",
         "name": "United States of America",
         "continent": "North America",
-        "currencies": ["USD"]
+        "currencies": ["USD"],
+        "stocklist": "lak_49"
     },
     "UZB": {
         "id": "UZB",
@@ -1041,7 +1066,8 @@
         "id": "ZAF",
         "name": "South Africa",
         "continent": "Africa",
-        "currencies": ["ZAR"]
+        "currencies": ["ZAR"],
+        "stocklist": "lak_9"
     },
     "ZMB": {
         "id": "ZMB",

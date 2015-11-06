@@ -4,12 +4,14 @@ define(["model", "jquery", "lodash", "async", "assets", "portfolio"],
 function(model,    $,         _,      async,   assets,   portfolio) {
   var view = {}
 
+  var selectedType = undefined
+
   /** This map defines which fields have to be visible for which asset type
    */
   var visibleFields = {
     "currency": ["Price", "Region"],
     "loan":     ["Price", "Quantity", "Region"],
-    "stock":    ["Quantity", "Stock"],
+    "stock":    ["Region", "Quantity", "Stock"],
     "property": ["Price", "Region"],
     "ressource":["Price", "Quantity"] //Region should be irrelevant for ressources
   }
@@ -20,10 +22,11 @@ function(model,    $,         _,      async,   assets,   portfolio) {
    */
   function redisplayFields() {
     $("div#addAssetFieldWrapper > div.form-group").hide()
-    var type = $("select#assetType").val()
-    _.each(visibleFields[type], function(groupName) { //Show all needed fields
+    selectedType = $("select#assetType").val()
+    _.each(visibleFields[selectedType], function(groupName) { //Show all needed fields
       var selector = "div#addAsset" + groupName + "Div"
       $(selector).show()
+      updateCountries() //Other countries are displayed depending on the selected type
     })
   }
 
@@ -40,12 +43,24 @@ function(model,    $,         _,      async,   assets,   portfolio) {
     var selectedContinent = $("select#assetContinent").val()
     var countrySelection = $("select#assetCountry")
     
-    var options = _.map(countryMap[selectedContinent], function(country) {
+    var countries = countryMap[selectedContinent]
+    if (selectedType == "stock") { //Only allow countries, we have stocks for
+      countries = _.filter(countries, function(country) { return country.stocklist !== undefined })
+    }
+
+    var options = _.map(countries, function(country) {
       return $('<option value="' + country.id + '">' + country.name + '</option>')
     })
 
     countrySelection.empty() //clear current options
     countrySelection.append(options)
+  }
+
+
+  /** This function will change the selectable stocks depending on the selected country
+   */
+  function countryChanged() {
+    //TODO update stock selection
   }
 
 
@@ -72,6 +87,8 @@ function(model,    $,         _,      async,   assets,   portfolio) {
       continentSelection.change(updateCountries) //Register change callback
       updateCountries() //Update once
 
+      $("select#assetCountry").change(countryChanged)
+      countryChanged() //Update once
 
       $("select#assetType").change(redisplayFields) //Register change callback for type field
       redisplayFields() //Update once
