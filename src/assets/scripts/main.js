@@ -12,7 +12,8 @@ requirejs.config({
     'async':'https://cdnjs.cloudflare.com/ajax/libs/async/1.5.0/async.min',
     'd3':'https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.3/d3.min',
     'topojson':'https://cdnjs.cloudflare.com/ajax/libs/topojson/1.6.9/topojson.min',
-    'datamaps':'https://cdn.rawgit.com/markmarkoh/datamaps/master/dist/datamaps.world.min'
+    'datamaps':'https://cdn.rawgit.com/markmarkoh/datamaps/master/dist/datamaps.world.min',
+    'chart':'https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min'
   }
 })
 
