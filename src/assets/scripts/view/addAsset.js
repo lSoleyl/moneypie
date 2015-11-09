@@ -1,7 +1,7 @@
 /** Logic module for addAsset view
  */
-define(["model", "jquery", "lodash", "async", "assets", "portfolio", "utils/message"],
-function(model,    $,         _,      async,   assets,   portfolio) {
+define(["model", "jquery", "lodash", "async", "assets", "portfolio", "loader/currency", "utils/message"],
+function(model,    $,         _,      async,   assets,   portfolio,   currency) {
   var view = {}
 
   var selectedType = undefined
@@ -40,8 +40,9 @@ function(model,    $,         _,      async,   assets,   portfolio) {
     _.each(visibleFields[selectedType], function(groupName) { //Show all needed fields
       var selector = "div#addAsset" + groupName + "Div"
       $(selector).show()
-      updateCountries() //Other countries are displayed depending on the selected type
     })
+
+    updateContinents() //Other countries are displayed depending on the selected type
   }
 
 
@@ -50,16 +51,34 @@ function(model,    $,         _,      async,   assets,   portfolio) {
    */
   var countryMap = {} 
 
+
+
+  /** This function will change the values of the continent selection depending
+   *  the available countries
+   */
+  function updateContinents() {
+    var avilableContinents = _.sortBy(_.filter(_.keys(model.continents), function(continent) {
+      //Only continents which have at least one availale country
+      return _.any(countryMap[continent], function(country) { return country[selectedType] }) 
+    }))
+
+    var options = _.map(avilableContinents, function(continent) {
+      return $('<option value="' + continent + '">' + continent + '</option>')
+    })
+
+    select.continent.empty() //clear currently available continents
+    select.continent.append(options)
+    updateCountries()
+  }
+
+
   /** This function will called every time, the continent selection has changed.
    *  It will change the available options of the country selection accordingly
    */
   function updateCountries() {
     var selectedContinent = select.continent.val()
     
-    var countries = countryMap[selectedContinent]
-    if (selectedType == "stock") { //Only allow countries, we have stocks for
-      countries = _.filter(countries, function(country) { return country.stocklist !== undefined })
-    }
+    var countries = _.filter(countryMap[selectedContinent], function(country) { return country[selectedType] })
 
     var options = _.map(countries, function(country) {
       return $('<option value="' + country.id + '">' + country.name + '</option>')
@@ -89,7 +108,7 @@ function(model,    $,         _,      async,   assets,   portfolio) {
     }
 
     //Update available currencies
-    var options = _.map(model.countries[selectedCountry].currencies, function(currencyId) {
+    var options = _.map(_.filter(model.countries[selectedCountry].currencies, currency.isKnown), function(currencyId) {
       var currency = model.currencies[currencyId]
       return $('<option value="' + currency.id + '">' + currency.symbol + '   - ' + currency.name + '</option>')
     })
@@ -179,29 +198,35 @@ function(model,    $,         _,      async,   assets,   portfolio) {
       
       fields = _.flatten([_.values(select), _.values(input)])
 
-      
-      //Generate continent options
-      var continentOptions = _.map(model.continents, function(data, continentName) {
-        return $('<option value="' + continentName + '">' + continentName + '</option>')
-      })
-
-      select.continent.append(continentOptions)
-
-      //Build countryMap
+      //Build countryMap (continent -> [country])
       _.each(model.continents, function(data, continentName) {
         countryMap[continentName] = _.sortBy(_.filter(model.countries, function(country) {
           return country.continent == continentName
         }),'name')
       })
 
-      select.continent.change(updateCountries) //Register change callback
-      updateCountries() //Update once
+      //Set availablility attributes for each country
+      _.each(countryMap, function(countryList) {
+        _.each(countryList, function(country) {
+          //Check whether we have stock data for that country
+          country["stock"] = (country.stocklist !== undefined)
 
-      select.country.change(countryChanged)
-      countryChanged() //Update once
+          //Check whether we have currency exchange data for that country
+          country["currency"] = _.any(country.currencies, currency.isKnown)
 
-      select.type.change(redisplayFields) //Register change callback for type field
-      redisplayFields() //Update once
+          //Properties and loans are available everywhere, ressources are country independent
+          country["property"] = true 
+          country["loan"] = true
+          country["ressource"] = false
+        })
+      })
+
+      //Register change callbacks  
+      select.type.change(redisplayFields) 
+      select.continent.change(updateCountries) 
+      select.country.change(countryChanged)    
+
+      redisplayFields() //Update view once
 
       button.submit.click(addAsset)
 
@@ -221,7 +246,6 @@ function(model,    $,         _,      async,   assets,   portfolio) {
       }
 
 
-      //TODO load currency information
       //TODO redisplay fields, when reset is clicked
     })
   }
