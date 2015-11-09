@@ -167,8 +167,8 @@ function(model,    $,         _,      async,   assets,   portfolio) {
       }
 
       button = {
-        reset:     $("button#addAssetReset"),
-        submit:    $("button#addAssetSubmit")
+        reset:     $("#addAssetReset"),
+        submit:    $("#addAssetSubmit")
       }
 
       input = {
