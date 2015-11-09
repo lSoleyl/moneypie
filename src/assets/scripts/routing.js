@@ -1,6 +1,7 @@
-define(['jquery', 'lodash', 'visualization/datamap', 
-         'view/addAsset', 'view/listAsset', 'view/clearPortfolio'], 
-function($, _, datamap, addAsset, listAsset, clearPortfolio) {
+define(['jquery', 'lodash', 
+         //Now simply mention view assets (don't bind them)
+         'view/datamap', 'view/overview', 'view/addAsset', 'view/listAsset', 'view/clearPortfolio'], 
+function($, _, datamap) {
   var routing = {}
 
   /** Initialization function
@@ -11,16 +12,12 @@ function($, _, datamap, addAsset, listAsset, clearPortfolio) {
     var routes = defaultRoutes(['portfolio', 'home', 'about', 'contact'])
     routes.default = 'home'
     routes['portfolio'].routes = { //Define portfolio sub routes
-      'overview': navRoute('overview'),                  //v-- Assetlist needs an update, every time, we open the page
-      'list': navRoute('list', {asset:'listAsset.html', onShow: listAsset.onShow}),
-      'add': navRoute('add', {asset:'addAsset.html', onLoad: addAsset.onLoad }),
-      'edit': navRoute('edit', {asset:'editAsset.html'}),
-      'clear': navRoute('clear', {asset: 'clearPortfolio.html', onLoad: clearPortfolio.onLoad }),
-      'worldmap': navRoute('worldmap', {asset:'datamap.html', 
-        onLoad: function() {
-          datamap.init('datamap')
-        }
-      }),      
+      'overview': navRoute('overview'),
+      'list': navRoute('list', 'listAsset'),
+      'add': navRoute('add', 'addAsset'),
+      'edit': navRoute('edit', 'editAsset'),
+      'clear': navRoute('clear', 'clearPortfolio'),
+      'worldmap': navRoute('worldmap', 'datamap'),      
       default: 'overview' //Default portfolio view
     }
 
@@ -48,28 +45,36 @@ function($, _, datamap, addAsset, listAsset, clearPortfolio) {
   /** This function defines a route for the portfolio navigation.
    *   
    * @param navkey the suffix of the nav link id (nav-portfolio-???)
-   * @param options
+   * @param assetname the basename of the html file and the js file which handle that navigation entry
    *
    * @return a route definition for the portfolio nav entry
    */
-  function navRoute(navkey, options) {
-    options = options || {}
-    options = _.defaults(options, { asset:navkey+'.html' })
+  function navRoute(navkey, assetname) {
+    assetname = assetname || navkey
+    
+    var moduleAsset = "view/" + assetname
+    var jsmodule = {}
+    if (require.defined(moduleAsset))
+     jsmodule = require(moduleAsset)
+
+    if (!jsmodule) 
+      throw "View module '" + moduleAsset + ".js' is ill defined, it doesn't return an object"
+
+    var htmlfile = assetname + ".html"
+
+
     var route = {
       deactivate:'a.list-group-item[id^="nav-portfolio-"]',
       activate: 'a#nav-portfolio-' + navkey,
       load: {
-        from:'./assets/static/' + options.asset,
+        from:'./assets/static/' + htmlfile,
         into:'div#mp-portfolio-content',
-        id:'mp-portfolio-content-' + navkey
+        id:'mp-portfolio-content-' + navkey,
+        onLoad: jsmodule.onLoad,
+        onShow: jsmodule.onShow
       },
-      routes: {}
+      routes: {},
     }
-
-    if (options.onLoad)
-      route.load.onLoad = options.onLoad
-    if (options.onShow)
-      route.load.onShow = options.onShow
 
     return route
   }
