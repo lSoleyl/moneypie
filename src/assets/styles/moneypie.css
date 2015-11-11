@@ -7,3 +7,8 @@
 .mp-datamap {
   height: 450px;
 }
+
+.highlight {
+  border: 2px solid #88ff88;
+  border-radius: 10px;
+}

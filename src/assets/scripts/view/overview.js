@@ -1,22 +1,21 @@
 define(['jquery', 'chart', 'd3', 'async', 'portfolio'], function($, Chart, d3, async, portfolio) {
   var view = {}
 
-
   var filters = [
     {
       key:'type',
-      name:'Type'
+      name:'type'
     },
     {
       key: function(x) { return x.price.currency },
-      name: 'Currency'
+      name: 'currency'
     },
     {
       key: function(x) { return x.region.continent },
-      name: 'Continent',
+      name: 'continent',
       next: {
         key: function(x) { return x.region.country },
-        name: 'Country'
+        name: 'country'
       }
     }
   ]
@@ -45,8 +44,13 @@ define(['jquery', 'chart', 'd3', 'async', 'portfolio'], function($, Chart, d3, a
     if (segments.length != 0) { //clicked inside a segment
       var segment = segments[0]
 
+      //Highlight selected diagram
+      $(this).siblings().removeClass("highlight")
+      $(this).addClass("highlight")
+      //TODO mark selected segment somehow
+
       //Draw next line of diagrams
-      async.nextTick(function() { drillInto(canvas.level + 1, canvas.grouped[segment.label], canvas.filters) }) 
+      async.nextTick(function() { drillInto(canvas.level + 1, canvas.grouped[segment.label], canvas.filters, segment.label) }) 
     }
   }
 
@@ -58,8 +62,9 @@ define(['jquery', 'chart', 'd3', 'async', 'portfolio'], function($, Chart, d3, a
    * @param level current drill level 0 for initial drill
    * @param dataset subset of the portfolio to drill down on
    * @param filters the remaining filters which can be applied to the dataset 
+   * @param basename the name of the currently shown dataset
    */
-  function drillInto(level, dataset, filters) {
+  function drillInto(level, dataset, filters, basename) {
     var content = $("#overviewContentDiv")
 
     //Remove all lines below the drilled one
@@ -80,16 +85,16 @@ define(['jquery', 'chart', 'd3', 'async', 'portfolio'], function($, Chart, d3, a
     content.append(canvasRow)
 
     _.each(filters, function(filter) {
-      var title = $('<div class="col-md-4"><center>By ' + filter.name + '</center></div>')
+      var title = $('<div class="col-md-4"><center>'+ basename + ' by ' + filter.name + '</center></div>')
       var canvas = $('<canvas></canvas>')
 
       title.appendTo(titleRow)
-      canvas.appendTo('<div class="col-md-4">').appendTo(canvasRow)
+      canvas.appendTo('<div class="col-md-4"></div>').appendTo(canvasRow)
 
       async.nextTick(function() { //Canvas is not immediately ready
         var canvasElement = canvas[0]
-        var ctx = canvasElement.getContext("2d")
-        var chart = new Chart(ctx).Pie()
+        var ctx = canvasElement.getContext("2d")              //v-- default bouncy animation is annoying
+        var chart = new Chart(ctx).Pie([], {animationEasing:"easeOutQuad"})
 
         var accessor = filter.key
         if (typeof accessor == "string") {
@@ -136,7 +141,7 @@ define(['jquery', 'chart', 'd3', 'async', 'portfolio'], function($, Chart, d3, a
     }
 
     //Display initial drill (type,currency/continent)
-    drillInto(0, portfolio.assets, filters)
+    drillInto(0, portfolio.assets, filters, "Portfolio")
   }
 
   return view
