@@ -30,26 +30,52 @@ define(['jquery', 'chart', 'd3', 'async', 'portfolio'], function($, Chart, d3, a
   })
 
   var ci = 0
+  /** A simple function to retrieve the precomputed colors by index
+   */
   function getColor() {
     return colors[++ci % colors.length]
   }
 
-  view.onShow = function() {
+  /** The event handler for clicking a section of a chart.
+   *  All important references are kept inside the canvas object
+   */
+  function chartClick(event) {
+    var canvas = this
+    var segments = this.chart.getSegmentsAtEvent(event)
+    if (segments.length != 0) { //clicked inside a segment
+      var segment = segments[0]
 
-    var content = $("#overviewContentDiv")
-    content.empty()
-    
-    
-
-
-    if (portfolio.assets.length == 0) {
-      content.append($('<div class="alert alert-warning" role="alert">Portfolio is empty, add assets first</div>'))
-      return
+      //Draw next line of diagrams
+      async.nextTick(function() { drillInto(canvas.level + 1, canvas.grouped[segment.label], canvas.filters) }) 
     }
+  }
 
 
-    var titleRow = $('<div class="row"></div>')
-    var canvasRow = $('<div class="row"></div>')
+  /** This function will add a new level of charts beginning at the given level
+   *  it will erase all previous charts at higher levels (lower rows).
+   *  It registers the event handler, which in turn calls drillInto() with level+1
+   *
+   * @param level current drill level 0 for initial drill
+   * @param dataset subset of the portfolio to drill down on
+   * @param filters the remaining filters which can be applied to the dataset 
+   */
+  function drillInto(level, dataset, filters) {
+    var content = $("#overviewContentDiv")
+
+    //Remove all lines below the drilled one
+    var titlerows = content.children("div[content=title]").slice(level)
+    var canvasrows = content.children("div[content=canvas]").slice(level)
+
+    _.each(titlerows, function(element) { $(element).remove() })
+    _.each(canvasrows, function(element) { $(element).remove() })
+
+    //Nothing to drill down on
+    if (filters.length == 0)
+      return
+
+    //Insert new rows
+    var titleRow = $('<div class="row" content="title"></div>')
+    var canvasRow = $('<div class="row" content="canvas"></div>')
     content.append(titleRow)
     content.append(canvasRow)
 
@@ -61,9 +87,10 @@ define(['jquery', 'chart', 'd3', 'async', 'portfolio'], function($, Chart, d3, a
       canvas.appendTo('<div class="col-md-4">').appendTo(canvasRow)
 
       async.nextTick(function() { //Canvas is not immediately ready
-
-        var ctx = canvas[0].getContext("2d")
+        var canvasElement = canvas[0]
+        var ctx = canvasElement.getContext("2d")
         var chart = new Chart(ctx).Pie()
+
         var accessor = filter.key
         if (typeof accessor == "string") {
           accesskey = accessor
@@ -71,23 +98,45 @@ define(['jquery', 'chart', 'd3', 'async', 'portfolio'], function($, Chart, d3, a
         }
 
         ci = 0 //Reset color index for each diagram
-        var grouped = _.groupBy(portfolio.assets, accessor)
+        var grouped = _.groupBy(dataset, accessor)
         var segments = _.map(grouped, function(assets, type) {
           return _.assign({
             value: _.sum(assets, function(asset) { return asset.volume() }).toFixed(2),
             label: type
           }, getColor())
         })
+        
+        //Save chart refrence and data inside DOM for event handler
+        canvasElement.chart = chart 
+        canvasElement.grouped = grouped
+        canvasElement.level = level
+        canvas.click(chartClick)
+
+        //Remove current filter from filterlist and replace with next sublevel if available
+        canvasElement.filters = _.filter(filters, function(f) { return f.name != filter.name })
+
+        if (filter.next)
+          canvasElement.filters.push(filter.next)
 
         _.each(segments, function(segment) { chart.addData(segment) })
         chart.update()
       })
     })
-   
-   
-    
-    //TODO add click listener
+  }
 
+
+
+  view.onShow = function() {
+    var content = $("#overviewContentDiv")
+    content.empty() //Clear all charts if the page is redisplayed
+
+    if (portfolio.assets.length == 0) {
+      content.append($('<div class="alert alert-warning" role="alert">Portfolio is empty, add assets first</div>'))
+      return
+    }
+
+    //Display initial drill (type,currency/continent)
+    drillInto(0, portfolio.assets, filters)
   }
 
   return view
