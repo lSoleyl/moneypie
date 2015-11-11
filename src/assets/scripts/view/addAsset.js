@@ -16,11 +16,11 @@ function(model,    $,         _,      async,   assets,   portfolio,   currency) 
   /** This map defines which fields have to be visible for which asset type
    */
   var visibleFields = {
-    "currency": ["Price", "Region"],
-    "loan":     ["Name", "Price", "Region"],
-    "stock":    ["Region", "Quantity", "Stock"],
-    "property": ["Name", "Price", "Region"],
-    "ressource":["Price", "Quantity"] //Region should be irrelevant for ressources
+    "liquidity": ["Price", "Region"],
+    "loan":      ["Name", "Price", "Region"],
+    "stock":     ["Region", "Quantity", "Stock"],
+    "property":  ["Name", "Price", "Region"],
+    "ressource": ["Price", "Quantity"] //Region should be irrelevant for ressources
   }
 
   //Initialize message module
@@ -126,8 +126,8 @@ function(model,    $,         _,      async,   assets,   portfolio,   currency) 
     loan: function() { 
       return assets.loan(input.name.val(), selectedCountry, parseFloat(input.value.val()), select.currency.val())
     },
-    currency: function() {
-      return assets.currency(select.currency.val(), selectedCountry, parseFloat(input.value.val()))
+    liquidity: function() {
+      return assets.liquidity(select.currency.val(), selectedCountry, parseFloat(input.value.val()))
     },
     property: function() {
       return assets.property(input.name.val(), selectedCountry, parseFloat(input.value.val()), select.currency.val())
@@ -212,7 +212,7 @@ function(model,    $,         _,      async,   assets,   portfolio,   currency) 
           country["stock"] = (country.stocklist !== undefined)
 
           //Check whether we have currency exchange data for that country
-          country["currency"] = _.any(country.currencies, currency.isKnown)
+          country["liquidity"] = _.any(country.currencies, currency.isKnown)
 
           //Properties and loans are available everywhere, ressources are country independent
           country["property"] = true 

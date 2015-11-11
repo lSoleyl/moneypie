@@ -34,14 +34,14 @@ define(["model", "loader/currency"], function(model, currency) {
 
   var assets = {}
 
-  /** Returns a new currency asset.
+  /** Returns a new liquidity asset.
    * 
    * @param symbol the three letter string symbol for the currency (see model.currencies)
    * @param countrySymbol the three letter string symbol of the currency's country
    * @param amount how much of that currency makes up the created asset
    */
-  assets.currency = function(symbol, countrySymbol, amount) {
-    var asset = new Asset(model.currencies[symbol].name, "currency", amount)
+  assets.liquidity = function(symbol, countrySymbol, amount) {
+    var asset = new Asset(model.currencies[symbol].name, "liquidity", amount)
     asset.price = {
       currency: symbol,
       value: 1
