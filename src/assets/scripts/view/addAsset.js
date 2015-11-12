@@ -229,6 +229,10 @@ function(model,    $,         _,      async,   assets,   portfolio,   currency) 
       redisplayFields() //Update view once
 
       button.submit.click(addAsset)
+      button.reset.click(function() { //handle reset button
+        $(this).parents("form")[0].reset()
+        async.nextTick(redisplayFields)
+      })
 
       //Input validation functions
       select.currency[0].validate = function(value) { if (!value) throw "No currency selected!" }
@@ -244,9 +248,6 @@ function(model,    $,         _,      async,   assets,   portfolio,   currency) 
         if (val <= 0 || val != val)
           throw "Asset quantity must be a positive number!"
       }
-
-
-      //TODO redisplay fields, when reset is clicked
     })
   }
 
