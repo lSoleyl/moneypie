@@ -27,7 +27,7 @@ requirejs(['routing', 'model', 'portfolio', 'loader/currency', 'loader/resource'
     currency.load()
 
     //Load resource information
-    resource.init()
+    resource.init(portfolio)
 
     // Initialize Routing for Single Plage Application
     routing.init();

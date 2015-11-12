@@ -6,6 +6,9 @@ define(['jquery', 'async', 'utils/yql', 'storage', 'utils/message'], function($,
   module.resources = {} //A name -> price map for resources
   module.lastUpdate = undefined
 
+  var requestQueue = []
+
+
   function today() { return (new Date()).toDateString() }
 
   function updateResources() {
@@ -32,9 +35,13 @@ define(['jquery', 'async', 'utils/yql', 'storage', 'utils/message'], function($,
       module.resources = tempResources
       module.lastUpdate = today()
       module.save() //Save updated values
+
+      _.each(requestQueue, async.nextTick)
+      requestQueue = []
       message.info("Updated resource prices")
     })
   }
+
 
   module.save = function() {
     storage.save("resourceData", module.resources)
@@ -46,11 +53,39 @@ define(['jquery', 'async', 'utils/yql', 'storage', 'utils/message'], function($,
     module.lastUpdate = storage.load("resourceDate")
   }
 
-  module.init = function() {
+
+  /** This function accepts a callback which gets called as soon as 
+   *  the resource data has been updated
+   */
+  module.ready = function(cb) {
+    if (module.lastUpdate == today()) {
+      async.nextTick(function() { cb(null, module.resources) })
+    } else {
+      requestQueue.push(function() { cb(null, module.resources) })
+    }
+  }
+
+  /** Initializes the module. Triggers an update if necessary and register the portfolio
+   *  to be changed after the resources got updated.
+   *
+   * @param portfolio the portfolio the change, once the prices got updated
+   */
+  module.init = function(portfolio) {
     module.load() //Load known data from local storage
 
     if (module.lastUpdate != today())
       updateResources()
+
+    //Register portfolio
+    if (portfolio) {
+      this.ready(function(err, resources) {
+        _.each(_.filter(portfolio.assets, function(x) { x.type == 'resource '}), function(r) {
+          r.price.value = resources[r.name]
+        })
+
+        portfolio.save()
+      })
+    }
   }
 
   return module

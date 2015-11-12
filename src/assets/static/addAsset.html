@@ -27,7 +27,7 @@
               <!--<option >Beteiligungspapiere</option>-->
               <option value="stock">Aktien</option>
               <option value="property">Immobilien</option>
-              <option value="ressource" disabled>Rohstoffe</option>
+              <option value="resource">Rohstoffe</option>
               <option value="liquidity">Liquiditäten</option>
             </select>
           </div>
@@ -63,6 +63,16 @@
               <input id="addAssetQuantity" class="form-control" type="number" placeholder="Quantity">
             </div>
           </div>
+
+
+          <!-- Resource selection (resources only) -->
+          <div class="form-group" id="addAssetResourceDiv">
+            <label class="col-lg-2 control-label" for="addAssetResource">Resource</label>
+            <div class="col-lg-10">
+              <select id="addAssetResource" class="form-control"></select>
+            </div>
+          </div>
+
 
           <!-- Stock selection(for stocks only) --> 
           <div class="form-group" id="addAssetStockDiv">

@@ -108,6 +108,9 @@ define(['jquery', 'chart', 'd3', 'async', 'portfolio'], function($, Chart, d3, a
 
         ci = 0 //Reset color index for each diagram
         var grouped = _.groupBy(dataset, accessor)
+        if (grouped[undefined]) //Grouping not supported by some elements of the dataset
+          delete grouped[undefined]
+
         var segments = _.map(grouped, function(assets, type) {
           return _.assign({
             value: _.sum(assets, function(asset) { return asset.volume() }).toFixed(2),

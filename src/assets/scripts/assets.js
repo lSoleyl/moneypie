@@ -1,7 +1,7 @@
 /** This module defines the assets utility module 
  *  and the hidden Asset class.
  */
-define(["model", "loader/currency"], function(model, currency) {
+define(["model", "loader/currency", "loader/resource"], function(model, currency, resource) {
   var Asset = function(name, type, amount) {
     this.name = name
     this.type = type
@@ -108,7 +108,19 @@ define(["model", "loader/currency"], function(model, currency) {
     return asset
   }
 
+  /** This function creates a new resource asset
+   */
+  assets.resource = function(name, amount) {
+    var asset = new Asset(name, "resource", amount)
 
+    asset.price = {
+      currency: "EUR", //all resources' prices are in €
+      value: resource.resources[name]
+    }
+    //resources are region independant
+
+    return asset
+  }
 
   /** This function will restore an object's prototype when it got loaded from
    *  local storage so that it's methods are available again.

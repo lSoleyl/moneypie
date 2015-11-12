@@ -1,7 +1,7 @@
 /** Logic module for addAsset view
  */
-define(["model", "jquery", "lodash", "async", "assets", "portfolio", "loader/currency", "utils/message"],
-function(model,    $,         _,      async,   assets,   portfolio,   currency) {
+define(["model", "jquery", "lodash", "async", "assets", "portfolio", "loader/currency", "loader/resource", "utils/message"],
+function(model,    $,         _,      async,   assets,   portfolio,       currency,         resource) {
   var view = {}
 
   var selectedType = undefined
@@ -20,7 +20,7 @@ function(model,    $,         _,      async,   assets,   portfolio,   currency) 
     "loan":      ["Name", "Price", "Region"],
     "stock":     ["Region", "Quantity", "Stock"],
     "property":  ["Name", "Price", "Region"],
-    "ressource": ["Price", "Quantity"] //Region should be irrelevant for ressources
+    "resource":  ["Quantity", "Resource"] //Region should be irrelevant for ressources
   }
 
   //Initialize message module
@@ -41,8 +41,8 @@ function(model,    $,         _,      async,   assets,   portfolio,   currency) 
       var selector = "div#addAsset" + groupName + "Div"
       $(selector).show()
     })
-
-    updateContinents() //Other countries are displayed depending on the selected type
+    if (selectedType != 'resource')
+      updateContinents() //Other countries are displayed depending on the selected type
   }
 
 
@@ -51,8 +51,7 @@ function(model,    $,         _,      async,   assets,   portfolio,   currency) 
    */
   var countryMap = {} 
 
-
-
+  
   /** This function will change the values of the continent selection depending
    *  the available countries
    */
@@ -131,6 +130,9 @@ function(model,    $,         _,      async,   assets,   portfolio,   currency) 
     },
     property: function() {
       return assets.property(input.name.val(), selectedCountry, parseFloat(input.value.val()), select.currency.val())
+    },
+    resource: function() {
+      return assets.resource(select.resource.val(), parseInt(input.quantity.val()))
     }
   }
 
@@ -181,6 +183,7 @@ function(model,    $,         _,      async,   assets,   portfolio,   currency) 
         continent: $("select#addAssetContinent"),
         country:   $("select#addAssetCountry"),
         currency:  $("select#addAssetCurrency"),
+        resource:  $("select#addAssetResource"),
         stock:     $("select#addAssetStock"),
         type:      $("select#addAssetType")        
       }
@@ -243,11 +246,21 @@ function(model,    $,         _,      async,   assets,   portfolio,   currency) 
         if (val <= 0 || val != val) //Second condition (=NaN)
           throw "Asset value must be a positive number!"        
       }
+
       input.quantity[0].validate = function(value) { 
         var val = parseInt(value)
         if (val <= 0 || val != val)
           throw "Asset quantity must be a positive number!"
       }
+
+      //Fill select entries as soon as resource data got updated
+      resource.ready(function(err, resources) {
+        console.dir(resources)
+        var options = _.map(_.keys(resources), function(key) {
+          return $('<option value="' + key + '">' + key + '</option>')
+        })
+        select.resource.append(options)
+      })
     })
   }
 
