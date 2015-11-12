@@ -4,7 +4,11 @@ define(['jquery', 'chart', 'd3', 'async', 'portfolio'], function($, Chart, d3, a
   var filters = [
     {
       key:'type',
-      name:'type'
+      name:'type',
+      next: {
+        key: 'name',
+        name: 'name'
+      }
     },
     {
       key: function(x) { return x.price.currency },
