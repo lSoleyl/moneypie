@@ -17,14 +17,17 @@ requirejs.config({
   }
 })
 
-requirejs(['routing', 'model', 'portfolio', 'loader/currency', 'jquery', 'bootstrap'], 
-  function( routing,   model,   portfolio,      currency,         $) {
+requirejs(['routing', 'model', 'portfolio', 'loader/currency', 'loader/resource', 'jquery', 'bootstrap'], 
+  function( routing,   model,   portfolio,      currency,           resource,         $) {
   $(function(){
     //Load portfolio from localstorage
     portfolio.load()
 
     //Load currency exchange data from localstorage (or update if necessary)
     currency.load()
+
+    //Load resource information
+    resource.init()
 
     // Initialize Routing for Single Plage Application
     routing.init();
