@@ -1,0 +1,337 @@
+[
+  {
+    "name": "United Kingdom Pound",
+    "type": "liquidity",
+    "amount": 10000,
+    "price": {
+      "currency": "GBP",
+      "value": 1
+    },
+    "region": {
+      "continent": "Europe",
+      "country": "GBR"
+    }
+  },
+  {
+    "name": "Poland Zloty",
+    "type": "liquidity",
+    "amount": 10000,
+    "price": {
+      "currency": "PLN",
+      "value": 1
+    },
+    "region": {
+      "continent": "Europe",
+      "country": "POL"
+    }
+  },
+  {
+    "name": "United States Dollar",
+    "type": "liquidity",
+    "amount": 10000,
+    "price": {
+      "currency": "USD",
+      "value": 1
+    },
+    "region": {
+      "continent": "North America",
+      "country": "USA"
+    }
+  },
+  {
+    "name": "Apple",
+    "type": "stock",
+    "amount": 200,
+    "price": {
+      "currency": "USD",
+      "value": 111.5
+    },
+    "region": {
+      "continent": "North America",
+      "country": "USA"
+    },
+    "isin": "US0378331005"
+  },
+  {
+    "name": "AT&T",
+    "type": "stock",
+    "amount": 500,
+    "price": {
+      "currency": "USD",
+      "value": 30.81
+    },
+    "region": {
+      "continent": "North America",
+      "country": "USA"
+    },
+    "isin": "US00206R1023"
+  },
+  {
+    "name": "Deutsche Bank",
+    "type": "stock",
+    "amount": 100,
+    "price": {
+      "currency": "EUR",
+      "value": 25.3
+    },
+    "region": {
+      "continent": "Europe",
+      "country": "DEU"
+    },
+    "isin": "DE0005140008"
+  },
+  {
+    "name": "Sony",
+    "type": "stock",
+    "amount": 300,
+    "price": {
+      "currency": "JPY",
+      "value": 25.75
+    },
+    "region": {
+      "continent": "Asia",
+      "country": "JPN"
+    },
+    "isin": "JP3435000009"
+  },
+  {
+    "name": "Russia Ruble",
+    "type": "liquidity",
+    "amount": 10000,
+    "price": {
+      "currency": "RUB",
+      "value": 1
+    },
+    "region": {
+      "continent": "Asia",
+      "country": "RUS"
+    }
+  },
+  {
+    "name": "Bundesschatzbrief",
+    "type": "loan",
+    "amount": 1,
+    "price": {
+      "currency": "EUR",
+      "value": 12000
+    },
+    "region": {
+      "continent": "Europe",
+      "country": "DEU"
+    }
+  },
+  {
+    "name": "White House",
+    "type": "property",
+    "amount": 1,
+    "price": {
+      "currency": "USD",
+      "value": 1000000
+    },
+    "region": {
+      "continent": "North America",
+      "country": "USA"
+    }
+  },
+  {
+    "name": "Euro",
+    "type": "liquidity",
+    "amount": 10000,
+    "price": {
+      "currency": "EUR",
+      "value": 1
+    },
+    "region": {
+      "continent": "Europe",
+      "country": "AUT"
+    }
+  },
+  {
+    "name": "Euro",
+    "type": "liquidity",
+    "amount": 10000,
+    "price": {
+      "currency": "EUR",
+      "value": 1
+    },
+    "region": {
+      "continent": "Europe",
+      "country": "GRC"
+    }
+  },
+  {
+    "name": "Euro",
+    "type": "liquidity",
+    "amount": 10000,
+    "price": {
+      "currency": "EUR",
+      "value": 1
+    },
+    "region": {
+      "continent": "Europe",
+      "country": "DEU"
+    }
+  },
+  {
+    "name": "China Yuan Renminbi",
+    "type": "liquidity",
+    "amount": 10000,
+    "price": {
+      "currency": "CNY",
+      "value": 1
+    },
+    "region": {
+      "continent": "Asia",
+      "country": "CHN"
+    }
+  },
+  {
+    "name": "Israel Shekel",
+    "type": "liquidity",
+    "amount": 10000,
+    "price": {
+      "currency": "ILS",
+      "value": 1
+    },
+    "region": {
+      "continent": "Asia",
+      "country": "ISR"
+    }
+  },
+  {
+    "name": "Japan Yen",
+    "type": "liquidity",
+    "amount": 10000,
+    "price": {
+      "currency": "JPY",
+      "value": 1
+    },
+    "region": {
+      "continent": "Asia",
+      "country": "JPN"
+    }
+  },
+  {
+    "name": "Brazil Real",
+    "type": "liquidity",
+    "amount": 10000,
+    "price": {
+      "currency": "BRL",
+      "value": 1
+    },
+    "region": {
+      "continent": "South America",
+      "country": "BRA"
+    }
+  },
+  {
+    "name": "Tempel von Zeus",
+    "type": "property",
+    "amount": 1,
+    "price": {
+      "currency": "EUR",
+      "value": 25000
+    },
+    "region": {
+      "continent": "Europe",
+      "country": "GRC"
+    }
+  },
+  {
+    "name": "Staatsanleihen",
+    "type": "loan",
+    "amount": 1,
+    "price": {
+      "currency": "EUR",
+      "value": 50000
+    },
+    "region": {
+      "continent": "Europe",
+      "country": "GRC"
+    }
+  },
+  {
+    "name": "Fujitsu",
+    "type": "stock",
+    "amount": 300,
+    "price": {
+      "currency": "JPY",
+      "value": 4.31
+    },
+    "region": {
+      "continent": "Asia",
+      "country": "JPN"
+    },
+    "isin": "JP3818000006"
+  },
+  {
+    "name": "Hitachi",
+    "type": "stock",
+    "amount": 300,
+    "price": {
+      "currency": "JPY",
+      "value": 5.34
+    },
+    "region": {
+      "continent": "Asia",
+      "country": "JPN"
+    },
+    "isin": "JP3788600009"
+  },
+  {
+    "name": "Honda Motor",
+    "type": "stock",
+    "amount": 1500,
+    "price": {
+      "currency": "JPY",
+      "value": 29.92
+    },
+    "region": {
+      "continent": "Asia",
+      "country": "JPN"
+    },
+    "isin": "JP3854600008"
+  },
+  {
+    "name": "Mitsubishi",
+    "type": "stock",
+    "amount": 800,
+    "price": {
+      "currency": "JPY",
+      "value": 15.06
+    },
+    "region": {
+      "continent": "Asia",
+      "country": "JPN"
+    },
+    "isin": "JP3898400001"
+  },
+  {
+    "name": "NINTENDO",
+    "type": "stock",
+    "amount": 650,
+    "price": {
+      "currency": "JPY",
+      "value": 18.55
+    },
+    "region": {
+      "continent": "Asia",
+      "country": "JPN"
+    },
+    "isin": "US6544453037"
+  },
+  {
+    "name": "Advanced Vision Technology",
+    "type": "stock",
+    "amount": 250,
+    "price": {
+      "currency": "ILS",
+      "value": 10.49
+    },
+    "region": {
+      "continent": "Asia",
+      "country": "ISR"
+    },
+    "isin": "IL0010837248"
+  }
+]

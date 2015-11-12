@@ -4,8 +4,8 @@ define(["storage", "assets", "lodash"], function(storage, assets, _) {
   var portfolio = { assets:[] }
   var key = "portfolio"
 
-  portfolio.load = function() {
-    var assetList = storage.load(key) || []
+  portfolio.load = function(assetArray) {
+    var assetList = assetArray || storage.load(key) || []
     this.assets = _.map(assetList, assets.objToAsset) //Convert plain objects into assets
   }
 
