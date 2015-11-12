@@ -19,7 +19,6 @@ define(['jquery', 'async', 'utils/yql', 'storage', 'utils/message'], function($,
         return
       }
 
-      //TODO select correct elements
       var rows = $(res).find("table#pushList > tbody > tr")
       
       var tempResources = {}

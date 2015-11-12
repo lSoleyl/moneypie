@@ -130,9 +130,6 @@ define(["model", "loader/currency", "loader/resource"], function(model, currency
     return obj
   }
 
-  //TODO utility functions to create assets
-
-
 
   return assets
 })
