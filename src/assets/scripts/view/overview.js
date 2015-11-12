@@ -24,11 +24,15 @@ define(['jquery', 'chart', 'd3', 'async', 'portfolio'], function($, Chart, d3, a
     }
   ]
 
+  function highlightColor(c) {
+    return "#" + _.map(_.words(c.substr(1), /[0-9A-Fa-f]{2}/g), function(hex) { return Math.min(parseInt(hex,16)+0x14, 255).toString(16) }).join("")
+  }
+
 
   var colors = _.map(d3.scale.category20().range(), function(color) { 
     return {
-      color:color,
-      highlight:color //TODO calculate highlighted color
+      color:     color,
+      highlight: highlightColor(color)
     }
   })
 
@@ -51,7 +55,6 @@ define(['jquery', 'chart', 'd3', 'async', 'portfolio'], function($, Chart, d3, a
       //Highlight selected diagram
       $(this).siblings().removeClass("highlight")
       $(this).addClass("highlight")
-      //TODO mark selected segment somehow
 
       //Draw next line of diagrams
       async.nextTick(function() { drillInto(canvas.level + 1, canvas.grouped[segment.label], canvas.filters, segment.label) }) 
