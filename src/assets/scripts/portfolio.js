@@ -26,5 +26,12 @@ define(["storage", "assets", "lodash"], function(storage, assets, _) {
     return _.sum(this.assets, function(asset) { return asset.volume() })
   }
 
+  /**
+   * Get Assets by Country Code
+   */
+  portfolio.assetsByCountry = function(country) {
+    return _.filter(this.assets, {region: {country: country}})
+  }
+
   return portfolio
 })
