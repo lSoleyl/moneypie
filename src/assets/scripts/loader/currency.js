@@ -7,7 +7,7 @@ define(["storage", "jquery"], function(storage, $) {
   function today() { return (new Date()).toDateString() }
 
   function update() {
-    $.ajax("//api.fixer.io/latest", {success:function(result) {
+    $.ajax("http://api.fixer.io/latest", {success:function(result) {
       currencyData = result
       currencyData.lastUpdate = today() //Update currencies at most daily
       storage.save("currency", currencyData)
@@ -20,7 +20,7 @@ define(["storage", "jquery"], function(storage, $) {
   currency.load = function() {
     currencyData = storage.load("currency")
     if (!currencyData || currencyData.lastUpdate != today())
-      update()    
+      update()
   }
 
   /** Returns true if an exchange rate is known for the given currency
@@ -41,9 +41,9 @@ define(["storage", "jquery"], function(storage, $) {
   }
 
 
-  /** This function can be called to convert a foreign currency into 
+  /** This function can be called to convert a foreign currency into
    *  euro
-   * 
+   *
    * @param currencySymbol the 3 letter string id from currencies.json
    */
   currency.toEuro = function(currencySymbol, value) {
