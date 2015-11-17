@@ -7,7 +7,7 @@ define(["storage", "jquery"], function(storage, $) {
   function today() { return (new Date()).toDateString() }
 
   function update() {
-    $.ajax("http://api.fixer.io/latest", {success:function(result) {
+    $.ajax("https://api.fixer.io/latest", {success:function(result) {
       currencyData = result
       currencyData.lastUpdate = today() //Update currencies at most daily
       storage.save("currency", currencyData)
