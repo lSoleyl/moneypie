@@ -4,15 +4,16 @@ define(['topojson', 'd3', 'lodash', 'datamaps', 'model', 'portfolio'], function(
   // Color Range
   var minColor = "#F5F5F5"
   var maxColor = "#208208"
+  var map = undefined;
 
   view.onShow = function() {
 
     // Generate WorldMap Data
     var data = generateMapData()
 
-    if(this.map == undefined){
+    if(map == undefined){
 
-      this.map = new Datamap({
+      map = new Datamap({
         element: document.getElementById("worldmapDiv"),
         projection: 'mercator',
         geographyConfig: {
@@ -28,7 +29,7 @@ define(['topojson', 'd3', 'lodash', 'datamaps', 'model', 'portfolio'], function(
 
     } else {
       // Update Infos on Map
-      console.log(data);
+      map.updateChoropleth(data);
     }
   }
 
