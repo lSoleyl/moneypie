@@ -30,6 +30,14 @@ define(['topojson', 'd3', 'lodash', 'datamaps', 'model', 'portfolio'], function(
     } else {
       // Update Infos on Map
       map.updateChoropleth(data);
+
+      for (var key in data) {
+        var newData = {};
+        if (key != -99) {
+          newData[key] = data[key].fillColor;
+          map.updateChoropleth(newData);
+        }
+      }
     }
   }
 
@@ -47,10 +55,9 @@ define(['topojson', 'd3', 'lodash', 'datamaps', 'model', 'portfolio'], function(
       if(country.id != -99){
         // Fetch Assets for given Country from Portfolio
         var assets = portfolio.assetsByCountry(country.id)
-        var fillKey = "defaultFill"
         var volume = _.sum(assets, function(x) { return x.volume() })
 
-        data[country.id] = { assets: assets.length, volume:volume.toFixed(2) }
+        data[country.id] = { fillKey: 'defaultFill', assets: assets.length, volume:volume.toFixed(2) }
       }
     })
 
