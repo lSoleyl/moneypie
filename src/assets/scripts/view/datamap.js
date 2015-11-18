@@ -10,8 +10,6 @@ define(['topojson', 'd3', 'lodash', 'datamaps', 'model', 'portfolio'], function(
     // Generate WorldMap Data
     var data = generateMapData()
 
-    console.log(data)
-
     if(this.map == undefined){
 
       this.map = new Datamap({
