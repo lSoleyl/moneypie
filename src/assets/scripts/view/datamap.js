@@ -19,7 +19,7 @@ define(['topojson', 'd3', 'lodash', 'datamaps', 'model', 'portfolio'], function(
             borderColor: '#DEDEDE',
             // show desired information in tooltip
             popupTemplate: function(geography, data) {
-              return '<div class="hoverinfo"><strong>' + geography.properties.name + '</strong><br>Assets: ' +  data.assets + ' '
+              return '<div class="hoverinfo"><strong>' + geography.properties.name + '</strong><br>Assets: ' +  data.assets + ' <br>Volume: ' + data.volume + ' €'
             }
         },
         fills: { defaultFill: '#F5F5F5' },
@@ -47,8 +47,9 @@ define(['topojson', 'd3', 'lodash', 'datamaps', 'model', 'portfolio'], function(
         // Fetch Assets for given Country from Portfolio
         var assets = portfolio.assetsByCountry(country.id)
         var fillKey = "defaultFill"
+        var volume = _.sum(assets, function(x) { return x.volume() })
 
-        data[country.id] = { assets: assets.length }
+        data[country.id] = { assets: assets.length, volume:volume.toFixed(2) }
       }
     })
 
