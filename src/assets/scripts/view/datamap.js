@@ -28,7 +28,7 @@ define(['topojson', 'd3', 'lodash', 'datamaps', 'model', 'portfolio'], function(
 
     } else {
       // Update Infos on Map
-      this.map.updateChoropleth(data)
+      console.log(data);
     }
   }
 
